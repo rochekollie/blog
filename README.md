@@ -1,2 +1,2 @@
 # blog
-A repository of articles about JavaScript and its frameworks
+A repository of thoughts on special topics in computer science.
