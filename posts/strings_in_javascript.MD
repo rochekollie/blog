@@ -1,6 +1,6 @@
-# Stringing Along: A Guide to JavaScript Strings
+# String Along: A Guide to JavaScript Strings
 
-# Overview
+## Overview
 
 To process information, computer programs must store data as a certain type. 
 A data type defines the operations that apply to the data. 
