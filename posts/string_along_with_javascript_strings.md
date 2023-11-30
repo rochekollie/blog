@@ -6,8 +6,8 @@ To process information, computer programs must store data as a data type.
 A data type defines the operations that apply to the data.
 For example, `number` is a data type that allows us to add two numbers:
 ` 1 + 2`.
-However, it would be nonsensical to add a number to a text: `1 + two` because `two` is not a number. `two` is a word.
-Words are represented as `string` data types in computer programs.
+However, it would be nonsensical to add a number to a text: `1 + two` because `two` is not a number.
+`two` is a text.
 In JavaScript and many programming languages, `string` is the data type used to represent text.
 There are seven data types in JavaScript: `number`, `string`, `boolean`, `null`, `undefined`, `symbol`, and `object`.
 This article focuses on the `string` data type.
