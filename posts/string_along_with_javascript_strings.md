@@ -28,12 +28,10 @@ A string can also be a sentence:
 The computer was invented in order to automate mathematical calculations that were previously completed by people.
 ```
 
-Or a string can be a paragraph:
+Or a string can be a paragraph from an article:
 
 ```text
-Charles Babbage is considered to be the “father” of the computer. He invented the first mechanical computer in the early 1800s.
-The computer was called the Analytical Engine. It was designed to perform mathematical calculations.
-The Analytical Engine was never built, but it was the first design for a computer.
+Babbage is considered by some to be "father of the computer". Babbage is credited with inventing the first mechanical computer, the Difference Engine, that eventually led to more complex electronic designs, though all the essential ideas of modern computers are to be found in Babbage's Analytical Engine, programmed using a principle openly borrowed from the Jacquard loom. Babbage had a broad range of interests in addition to his work on computers covered in his 1832 book Economy of Manufactures and Machinery. His varied work in other fields has led him to be described as "pre-eminent" among the many polymaths of his century.
 ````
 
 As you can see, a string can be as long as you want it to be.
