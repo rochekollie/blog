@@ -10,10 +10,35 @@ For example, a string can be used to store a person's name, a book title, a movi
 
 ## What is a JavaScript string?
 
-In JavaScript, a string is a sequence of characters.
-A string can be a word,
-a sentence, a paragraph, or as long as you want it to be.
-It can be a single character, an empty character containing no characters, your favorite emojis, or a whole book.
+In JavaScript, a `string` is a sequence of characters.
+Characters are symbols including letters, punctuation, and various other written marks in a language.
+For example, `a`, `B`, `c`, `1`, `2`, `3`, `@`, `#`, `$`
+are characters in many European languages like German or Norwegian,
+romance languages like French or Spanish, African Swahili and Vietnamese.
+
+A string can be a word:
+
+```text
+hello
+```
+
+A string can also be a sentence:
+
+```text
+The computer was invented in order to automate mathematical calculations that were previously completed by people.
+```
+
+Or a string can be a paragraph:
+
+```text
+Charles Babbage is considered to be the “father” of the computer. He invented the first mechanical computer in the early 1800s.
+The computer was called the Analytical Engine. It was designed to perform mathematical calculations.
+The Analytical Engine was never built, but it was the first design for a computer.
+````
+
+As you can see, a string can be as long as you want it to be.
+It can be a single character (`a`), an empty character containing no characters (` `), your favorite
+emojis `🤣`, `🎅`, `🎆`, `🎇`, `🎈`, `🎉`, `🎄`, `🍕`, `🍺`, `🍩`, `🍪`, `🍫`, `🍬`, `🍭`, `🍮`, or a whole book.
 
 As a programmer, you will often need to manipulate strings in many useful ways:
 
