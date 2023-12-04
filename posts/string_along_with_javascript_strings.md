@@ -95,20 +95,17 @@ A [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) is a 
 When strings are created using string literals, they are primitive data types.
 They do not have properties and methods of their own.
 This is because primitive data types are not objects.
-There are two ways to create a string primitive in JavaScript:
+As we said earlier, there are two ways to create a string primitive in JavaScript:
 
-- String literals, or
-- The `String` constructor
+- Using string literals, or
+- Using the `String` constructor
 
-
-
-
-
+String literals are the most common way to create strings in JavaScript.
 The `String` constructor is a built-in global object in JavaScript that represents a string of text.
-As we said earlier, the `String` constructor can be used to create string primitives.
-Although it is rarely used to create strings, it is important to know that it exists.
+Although it is rarely used to create strings,
+it is important to know that the `String` constructor can be used to create strings.
 
-### Creating String Primitives with String Literals
+### Creating String Primitives using String Literals
 
 String primitives can be created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
 This is the most common way to create strings in JavaScript.
