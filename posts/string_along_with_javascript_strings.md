@@ -67,15 +67,25 @@ In the next section, we will explore the difference between these types.
 ## String Primitives vs String Objects
 
 Strings can be created using the `String` object or using string literals.
-Each method has its own use case, and each method produces a different data type.
-
-The following code snippet shows how strings may be a primitive type or an object:
+A string literal is a sequence of characters enclosed in single quotes `' '`,
+double quotes `" "`, or backticks `` ` ` ``.
+For example, the following code snippet creates a string variable called `name` that stores the value `John`:
 
 ```javascript
-const stringPrimitive = 'I am a string primitive.';
+const stringPrimitive = 'I am a string primitive.'; // string literal
+```
 
-const stringObject = new String('I am a String object.');
+In the above code snippet, the string `I am a string primitive.` is created using a string literal.
+In the following code snippet a string object `I am a string object.` is created using the `String` constructor.
 
+```javascript
+const stringObject = new String('I am a String object.'); // String constructor
+```
+
+Each method has its own use case, and each method produces a different data type.
+If we log the type of each variable to the console, we will see that `stringPrimitive` is a string primitive and that `stringObject` is a string object.
+
+```javascript
 console.log(typeof stringPrimitive); // string
 
 console.log(typeof stringObject); // object
@@ -91,7 +101,8 @@ String along, as we explore these two string types beginning with the `string` p
 
 ## String Primitives
 
-A [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) is a data type that is not an object and has no methods.
+A [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) is a data type that is not an object and has
+no methods.
 When strings are created using string literals, they are primitive data types.
 They do not have properties and methods of their own.
 This is because primitive data types are not objects.
@@ -130,7 +141,7 @@ However, the below code snippets will not produce errors because the opening and
 ```javascript
 const name = 'John'; // single quotes
 
-const name = 'John'; // double quotes
+const name = "John"; // double quotes
 
 const name = `John`; // backticks
 
@@ -140,8 +151,7 @@ const name = String('John'); // String constructor
 Whether you use single quotes `' '`, double quotes `" "`,
 or backticks `` ` ` `` to create a string primitive is a matter of preference.
 However, there are some use cases where one method may be preferred over the other.
-Let's look at each
-method in detail.
+Let's look at some use cases where one method may be preferred over the other.
 
 #### Single Quotes (` ' '` )
 
