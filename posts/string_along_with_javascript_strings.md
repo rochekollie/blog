@@ -163,25 +163,61 @@ For example, the following code snippet
 creates a string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
 
 ```javascript
-let sentence = 'He said, "Watch the giant fall."';
+const sentence = 'He said, "Watch the giant fall."';
 
 console.log(sentence); // He said, "Watch the giant fall."
 ```
 
+In the above code snippet, the single quotes (`''`) are used to enclose the string.
+The double quotes (`""`) are used to enclose the string that contains double quotes (`""`).
+However, if you try to create a string that contains single quotes using single quotes, you will get an error:
+
+```javascript
+const sentence = 'He said, 'Watch the giant fall.'; // SyntaxError: Unexpected identifier
+```
+In the above code snippet, the single quotes (`''`) are used to enclose the string.
+The single quotes (`''`) are also used to enclose the string that contains single quotes (`'`).
+However, the single quotes (`''`) are not escaped.
+So,
+the JavaScript interpreter thinks that the string ends at the first single quote
+(`'`) and the rest of the string is invalid JavaScript code.
+
+
+
+
 #### Double Quotes (` " "` )
 
-Double quotes are used to create strings that contain single quotes. For example, the following code snippet creates a
+A string can also be created using double quotes (`""`).
+Double quotes are also used to create strings that are short and readable.
+They are used to create strings that contain single quotes.
+For example, the following code snippet creates a
 string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
 
 ```javascript
 const sentence = "I can't believe it's not butter!";
 ```
 
+There are many reasons you may want to use double quotes to create a string.
+The following are some use cases where you may want to use double quotes to create a string: 
+
+- String that contains single quotes: `"I can't wait to see you."`
+- String that contains double quotes: `"He said, "Watch the giant fall.""`
+- String that contains backticks: `"I'm a template literal."`
+
+In the above code snippet, the double quotes (`""`) are used to enclose the string.
+The single quotes (`''`) are used to enclose the string that contains single quotes (`'`).
+
 In the code snippet above, the double quotes (`""`) are used to enclose the string.
 The single quotes (`''`) are used to enclose the string that contains single quotes `'`. The backslash `\ ` is used to
 escape the single quotes `'` in the string.
 
 #### Escape Characters
+
+To fix this error, you can escape the single quotes (`''`) using the backslash (`\ `):
+
+```javascript
+const sentence = 'He said, \'Watch the giant fall.\'';
+````
 
 Single quotes are also used to create strings that contain single quotes.
 For example, the following code snippet creates a string variable called `sentence` that stores the
