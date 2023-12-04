@@ -68,16 +68,6 @@ In the next section, we will explore the difference between these types.
 
 Strings can be created using the `String` object or using string literals.
 Each method has its own use case, and each method produces a different data type.
-This is important to know because it can affect how you use strings in your code.
-
-
-***A primitive is a data type that is not an object and has no methods.
-A method is a function associated with an object.
-An object is a collection of methods and properties.
-A property is a value associated with an object.***
-
-
-
 
 The following code snippet shows how strings may be a primitive type or an object:
 
@@ -91,21 +81,20 @@ console.log(typeof stringPrimitive); // string
 console.log(typeof stringObject); // object
 ```
 
-As shown in the code snipped above, we see that strings can be a primitive data type or an object.
-
-
-
-In the above code snippet, `stringPrimitive` is a string primitive and `stringObject` is a `String` object.
-Strings created using the `String` constructor may be instances of the `String` object or a `string` primitive type.
-That is, they may inherit properties and methods from the `String` object depending on how they are created.
-We will cover the difference between these two concepts in the next section.
-When strings are created using string literals, they are primitive data types.
-They do not have properties and methods of their own.
-This is because primitive data types are not objects.
-String along, as we explore these two concepts beginning with the `string` primitive type.
+As shown in the code snippet above, we see that strings can be a primitive data type or an object.
+However, it is important to note that the `String` constructor can be used with or without the `new` keyword.
+When `String()` is called **with the `new` keyword**, it returns a `String` object.
+When `String()` is called **without the `new` keyword**, it returns a string primitive.
+We will also cover the difference between these two concepts in the next section.
+What is important to know is that there are two types of strings in JavaScript: string primitives and string objects.
+String along, as we explore these two string types beginning with the `string` primitive type.
 
 ## String Primitives
 
+A [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) is a data type that is not an object and has no methods.
+When strings are created using string literals, they are primitive data types.
+They do not have properties and methods of their own.
+This is because primitive data types are not objects.
 There are two ways to create a string primitive in JavaScript:
 
 - String literals, or
@@ -113,11 +102,13 @@ There are two ways to create a string primitive in JavaScript:
 
 
 
+
+
 The `String` constructor is a built-in global object in JavaScript that represents a string of text.
 As we said earlier, the `String` constructor can be used to create string primitives.
 Although it is rarely used to create strings, it is important to know that it exists.
 
-### String Literals
+### Creating String Primitives with String Literals
 
 String primitives can be created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
 This is the most common way to create strings in JavaScript.
