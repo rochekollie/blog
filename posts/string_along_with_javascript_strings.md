@@ -1,12 +1,14 @@
 # String Along with JavaScript Strings
 
-
 To process information, computer programs must store data as a type.
-A data type defines the operations that apply to the data.
+A data type defines how the data is stored in memory,
+which operations can be applied to the data, and how to execute those operations.
 In computer science, `string` is the data type used to represent text.
 Strings are a fundamental part of JavaScript.
 They are used to store data that is textual in nature.
-For example, a string can be used to store a person's name, a book title, a movie quote, a song lyric, a poem, a paragraph, a book, a speech, a letter, a recipe, a blog post, a tweet, a comment, a text, an email, a chat message, and so on.
+For example, a string can be used to store a person's name, a book title, a movie quote, a song lyric, a poem, a
+paragraph, a book, a speech, a letter, a recipe, a blog post, a tweet, a comment, a text, an email, a chat message, and
+so on.
 
 ## What is a JavaScript string?
 
@@ -34,7 +36,7 @@ Or a string can be a paragraph from an article:
 Babbage is considered by some to be "father of the computer".
 Babbage is credited with inventing the first mechanical computer, the Difference Engine, that eventually led to more complex electronic designs, though all the essential ideas of modern computers are to be found in Babbage's Analytical Engine, programmed using a principle openly borrowed from the Jacquard loom.
 Babbage had a broad range of interests in addition to his work on computers covered in his 1832 book Economy of Manufactures and Machinery. His varied work in other fields has led him to be described as "pre-eminent" among the many polymaths of his century.
-````
+```
 
 As you can see, a string can be as long as you want it to be.
 It can be a single character (`a`), an empty character containing no characters (` `), your favorite
@@ -53,41 +55,66 @@ As a programmer, you will often need to manipulate strings in many useful ways:
 - A string can be compared to another string.
 - And hopefully many more useful stringing along with strings.
 
+In this article, we will explore many ways to manipulate strings in JavaScript.
+However, before we do, we first need to know that there are two types of strings in JavaScript.
+A string can be a:
+
+- string primitives, or a
+- string objects
+
+In the next section, we will explore the difference between these types.
+
 ## String Primitives vs String Objects
 
-In JavaScript,
-strings can be created using the `String` object or using string literals.
+Strings can be created using the `String` object or using string literals.
 Each method has its own use case, and each method produces a different data type.
-This is important to know
-because a string can be a primitive data type or an object.
+This is important to know because it can affect how you use strings in your code.
+
+
+***A primitive is a data type that is not an object and has no methods.
+A method is a function associated with an object.
+An object is a collection of methods and properties.
+A property is a value associated with an object.***
+
+
+
+
+The following code snippet shows how strings may be a primitive type or an object:
 
 ```javascript
-const stringPrimitive = 'Hello, world';
+const stringPrimitive = 'I am a string primitive.';
+
+const stringObject = new String('I am a String object.');
 
 console.log(typeof stringPrimitive); // string
-
-const stringObject = new String('Hello, world'); // String object
 
 console.log(typeof stringObject); // object
 ```
 
+As shown in the code snipped above, we see that strings can be a primitive data type or an object.
+
+
+
 In the above code snippet, `stringPrimitive` is a string primitive and `stringObject` is a `String` object.
-Strings created using the `String` object can be instances of the `String` object or the `string` primitive data type.
-They may inherit properties and methods from the `String` object.
+Strings created using the `String` constructor may be instances of the `String` object or a `string` primitive type.
+That is, they may inherit properties and methods from the `String` object depending on how they are created.
 We will cover the difference between these two concepts in the next section.
 When strings are created using string literals, they are primitive data types.
 They do not have properties and methods of their own.
 This is because primitive data types are not objects.
-String along, and let explore these two concepts beginning with the `string` primitive data type.
+String along, as we explore these two concepts beginning with the `string` primitive type.
 
 ## String Primitives
 
-A string primitive is a data type that is not an object and has no methods.
-A method is a function associated with an object.
-There are two ways to create a string primitive in JavaScript.
-The first way is as string literals.
-The second way is to use the `String` constructor.
+There are two ways to create a string primitive in JavaScript:
+
+- String literals, or
+- The `String` constructor
+
+
+
 The `String` constructor is a built-in global object in JavaScript that represents a string of text.
+As we said earlier, the `String` constructor can be used to create string primitives.
 Although it is rarely used to create strings, it is important to know that it exists.
 
 ### String Literals
@@ -104,20 +131,24 @@ The following code snippets will produce errors because the opening and closing 
 const name = 'John"; // beginning single quote, ending double quote
 const name = "John'; // beginning double quote, ending single quote
 const name = `John'; // beginning backtick, ending single quote
-const name = `John"; // beginning backtick, ending double quote
+const name = `
+John
+"; // beginning backtick, ending double quote
 const name = String('John"); // String constructor with beginning single quote, ending double quote
 ```
+
 However, the below code snippets will not produce errors because the opening and closing quotes match:
 
 ```javascript
 const name = 'John'; // single quotes
 
-const name = "John"; // double quotes
+const name = 'John'; // double quotes
 
 const name = `John`; // backticks
 
 const name = String('John'); // String constructor
 ```
+
 Whether you use single quotes `' '`, double quotes `" "`,
 or backticks `` ` ` `` to create a string primitive is a matter of preference.
 However, there are some use cases where one method may be preferred over the other.
@@ -141,27 +172,28 @@ console.log(sentence); // He said, "Watch the giant fall."
 
 #### Double Quotes (` " "` )
 
-Double quotes are used to create strings that contain single quotes. For example, the following code snippet creates a string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
+Double quotes are used to create strings that contain single quotes. For example, the following code snippet creates a
+string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
 
 ```javascript
 const sentence = "I can't believe it's not butter!";
 ```
 
 In the code snippet above, the double quotes (`""`) are used to enclose the string.
-The single quotes (`''`) are used to enclose the string that contains single quotes `'`. The backslash `\ ` is used to escape the single quotes `'` in the string.
+The single quotes (`''`) are used to enclose the string that contains single quotes `'`. The backslash `\ ` is used to
+escape the single quotes `'` in the string.
 
-####  Escape Characters
+#### Escape Characters
 
 Single quotes are also used to create strings that contain single quotes.
-For example, the following code snippet creates a string variable called `sentence` that stores the value `He said, "I'm a string."`:
+For example, the following code snippet creates a string variable called `sentence` that stores the
+value `He said, "I'm a string."`:
 
 ```javascript
 let sentence = 'He said, "I\'m a string."';
 
 console.log(sentence); // He said, "I'm a string."
 ```
-
-
 
 In the above code snippet, the double quotes (`""`) are used to enclose the string. The single quotes (`''`) are used to
 enclose the string that contains double quotes (`""`).
@@ -175,7 +207,9 @@ is used to escape characters that have special meaning in JavaScript.
 
 #### Backticks (` `` `)
 
-Backticks are used to create template literals. Template literals are used to create strings that contain placeholders. For example, the following code snippet creates a string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
+Backticks are used to create template literals. Template literals are used to create strings that contain placeholders.
+For example, the following code snippet creates a string variable called `sentence` that stores the
+value `He said, "Watch the giant fall."`:
 
 ```javascript
 const sentence = `He said, "Watch the giant fall."`;
@@ -195,7 +229,6 @@ For example, the following code snippet concatenates the strings `hello` and `wo
 'hello' + 'world'; // helloworld
 ```
 
-
 A string can also be interpolated using template literals:
 
 ```javascript
@@ -213,23 +246,17 @@ However, there are many built-in functions that can be used to manipulate string
 We will learn more about these functions in this article.
 Before we do, let's take a look at the `String` object.
 
-
-
 # START PLACEHOLDER
 
 However, it is important to note that the `String` constructor can be used with or without the `new` keyword.
 When `String()` is called **with** the `new` keyword, it returns a `String` object.
 When `String()` is called **without** the `new` keyword, it returns a string primitive.
 
-
 A string primitive is created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
 The following code snippets show how to create strings using each of these methods.
 
-
-
 A string primitive is created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
 The following code snippets show how to create strings using each of these methods.
-
 
 A primitive is a data type that is not an object and has no methods.
 A method is a function associated with an object.
@@ -258,7 +285,6 @@ This is
 because JavaScript automatically coerces a string
 created using the `String` constructor to a string primitive if the `new` keyword is not used.
 
-
 Take a look at the following code snippet:
 
 ```javascript
@@ -272,20 +298,17 @@ is a `String` object
 and `stringPrimitive` is a string primitive
 because the `new` keyword is used with `String()` in the first line and omitted in the second line.
 
-
 The following are valid string primitive variables:
 
 ```javascript
 const greeting = 'Hello, world';
 
-const name = "john";
+const name = 'john';
 
 const sentence = `${greeting}, my name is ${name}.`;
 
 const stringPrimitive = String('I am also a primitive.');
 ```
-
-
 
 ## String Objects
 
@@ -334,9 +357,11 @@ can change the first letter of `name` to uppercase using the methods associated 
 ```javascript
 const greeting = 'Hello, world';
 
-const name = "john";
+const name = 'john';
 
-const sentence = `${greeting}, my name is ${name.charAt(0).toUpperCase() + name.slice(1)}.`;
+const sentence = `${greeting}, my name is ${
+    name.charAt(0).toUpperCase() + name.slice(1)
+}.`;
 ```
 
 In the above code snippet, the `toUpperCase()` method is used to convert the first letter of `name` to uppercase.
@@ -351,7 +376,8 @@ String along, and you will understand it soon enough as we explore our next sect
 A string method is a function associated with a string object.
 Going back to string primitive vs a string object, we stated that a string primitive has no methods of its own.
 Therefore, a string primitive cannot be used with a method.
-However, JavaScript behind the scenes converts string primitives to string objects when a string primitive is used with a method.
+However, JavaScript behind the scenes converts string primitives to string objects when a string primitive is used with
+a method.
 For this reason, you can use methods on string primitives as if they were string objects.
 For example, the `toUpperCase()` method is associated with the `String` object.
 
