@@ -42,31 +42,54 @@ As you can see, a string can be as long as you want it to be.
 It can be a single character (`a`), an empty character containing no characters (` `), your favorite
 emojis `🤣`, `🎅`, `🎆`, `🎇`, `🎈`, `🎉`, `🎄`, `🍕`, `🍺`, `🍩`, `🍪`, `🍫`, `🍬`, `🍭`, `🍮`, or a whole book.
 
-As a programmer, you will often need to manipulate strings in many useful ways:
-
-- A string can be converted to uppercase letters, lowercase letters, or title case.
-- A string can be split into an array of substrings.
-- A string can be concatenated by joining together two or more strings.
-- A string can be searched for a substring.
-- A string can be replaced with another string.
-- A string can be reversed.
-- A string can be trimmed.
-- A string can be sorted.
-- A string can be compared to another string.
-- And hopefully many more useful stringing along with strings.
+As a programmer, you will often need to create strings, manipulate strings, and compare strings.
+You may need to create strings to store textual data, convert strings to uppercase, lowercase, or title case, split a string into an array of substrings, concatenate two or more strings, search for a substring, replace a substring, reverse a string, trim a string, sort a string, compare two strings, and so on.
 
 In this article, we will explore many ways to manipulate strings in JavaScript.
-However, before we do, we first need to know that in JavaScript strings can be a primitive type or an object.
-This is because there are two types of strings in JavaScript:
-
-1. String primitives
-2. String objects
-
+However, before we do, we first need to know that there are two types of strings in JavaScript:
+string primitives and string objects.
 Let's jump right in and explore these two types of string.
 
 ## String Primitives vs String Objects
 
-Strings created using the string literals are primitive types.
+A string [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) is a string that is not an object and has
+no methods.
+A method is a function associated with an object.
+A string [object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object) is a wrapper around the string primitive data type.
+To understand these two types of strings, take a look at the following code snippet:
+
+```javascript
+const stringPrimitive = 'I am a string primitive.'; // string literal
+
+const anotherStringPrimitive = String('I am also a string primitive.'); // String constructor
+
+const stringObject = new String('But I am a string object.'); // String constructor
+
+// check the type of each variable
+console.log(typeof stringPrimitive); // string
+
+console.log(typeof anotherStringPrimitive); // string
+
+console.log(typeof stringObject); // object
+```
+
+In the code above, `stringPrimitive` and `anotherStringPrimitive` variables are string primitives.
+The only difference between the two is that `stringPrimitive` was created
+using a string literal and `anotherStringPrimitive` was created using the `String` constructor.
+Our last variable, `stringObject`, is a string object also created using the `String` constructor.
+Do not worry if you are not familiar with the `String` constructor.
+I will explain it in more detail in this article.
+Meanwhile, let's take a look at the difference between string primitives and string objects.
+
+## String Primitives
+
+As seen in the code above, there are two ways to create primitive strings.
+You can create primitive strings using string literals or the `String` constructor.
+
+String literals are the most common way to create strings in JavaScript.
+To create a string literal, you enclose the string in single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
+
+The following are valid string primitives using the string literals:
 
 ```javascript
 'I am a string primitive.'; // string literal
@@ -74,54 +97,130 @@ Strings created using the string literals are primitive types.
 "I am also a string primitive."; // string literal
 
 `I am a template literal.`; // template literal
+```
+
+The second way to create primitive strings in JavaScript is to use the `String` constructor.
+The `String` constructor is a built-in global object in JavaScript that represents a string of text.
+
+The following are valid strings primitives using the `String` constructor:
+
+```javascript
+String('I am a string primitive.'); // String constructor with single quotes
+
+String("I am also a string primitive."); // String constructor with double quotes
 
 String('I am also a string primitive.'); // String constructor
 ```
 
-Strings created using the `String` constructor are objects:
+Note that in the above code snippet, the `String()` constructor is called without the `new` keyword.
+There is a difference between calling the `String()` constructor with or without the `new` keyword.
+We will cover this difference in our next section, string objects.
+
+## String Objects
+
+String objects are created using the `String` constructor.
+To create a string object, you use the `new` keyword with the `String` constructor.
+
+The following are valid string objects using the `String` constructor:
 
 ```javascript
 new String('I am a String object.'); // String constructor with single quotes
 
 new String("I am also a String object."); // String constructor with double quotes
-```
 
-Take a look at the following code snippet:
+new String(`I am also a String object.`); // String constructor with backticks
+```
+Note that this time the `String()` constructor is called with the `new` keyword.
+It is important to note that the `String` constructor can be used with or without the `new` keyword.
+When the `String()` constructor is called without the `new` keyword,
+it returns a string primitive.
+However, when the `String()` constructor is called with the `new` keyword, it returns a `String` object.
+
+Take a look at the flowing code snippet:
 
 ```javascript
-const stringPrimitive = 'I am a string primitive.'; // string literal
-console.log(typeof stringPrimitive); // string
+const stringObject = new String('Hello, world'); // string object
 
-const stringObject = new String('I am a String object.'); // String constructor
-console.log(typeof stringObject); // object
+const stringPrimitive = String('Hello, world'); // string primitive
 ```
 
-As shown in the code snippet above, strings can be a primitive data type or an object.
+Although it is rarely used to create strings,
+it is important to know
+that the `String` constructor can be used to create string primitives and string objects.
+What is important to know from the code above is that `stringObject` is a primitive data type and has no methods of its own.
+On the other hand, `stringObject` is an instance of the `String` object and has many methods of its own.
 
-It is important to note
-that the `String` constructor can be used to create strings primitive as seen in the code earlier:
-`String('I am also a string primitive.')`.
-Do not worry if you are not familiar with the `String` constructor.
-I will explain this in more detail in this article.
-**It is important to know that there are two types of strings in JavaScript:
-string primitives and string objects.
-String primitives can be created using string literals or the `String` constructor.
-String objects can only be created using the `String` constructor**.
+With that in mind, take a look at the following code snippet:
 
-To understand these two types of strings, let's begin with the `string` primitive type.
+```javascript
+console.log(stringPrimitive.toUpperCase()); // HELLO, WORLD
+```
 
-## String Primitives
+In the above code snippet, the `toUpperCase()` method is used to convert the string primitive to uppercase.
+Why does the `toUpperCase()` method work on a string primitive
+when we said that string primitives have no methods of their own?
+The answer is coercion.
+JavaScript behind the scenes converts string primitives to string objects
+when a string primitive is used with a method.
+For this reason, you can use the `String` constructor methods such `toUpperCase()`,
+`toLowerCase()`, `charAt()`, and so on as if they were string objects.
+This is because JavaScript automatically coerces a string primitive to a string object if the `new` keyword is not used.
 
-A [primitive](https://developer.mozilla.org/en-US/docs/Glossary/Primitive) is a data type that is not an object and has
-no methods.
-When strings are created using string literals, they are primitive data types.
-They do not have properties and methods of their own.
-This is because primitive data types are not objects.
-As we said earlier, string primitives can be created using string literals or the `String` constructor.
+Before we move on, let's summarize what we have learned so far.
+There are two types of strings in JavaScript: string primitives and string objects.
+Primitive strings are created either as string literals using single quotes `' '`,
+double quotes `" "`, or backticks `` ` ` ``, or using the `String` constructor without the `new` keyword.
+However, when the `String` constructor is called with the `new` keyword, it returns a string object.
+JavaScript converts string primitives to string objects behind the scene when a string primitive is used with a method,
+and for this reason, you can use methods on string primitives as if they were string objects.
+Now we are ready to have, working with strings.
 
-### Creating String Primitives using String Literals
+## Working with Strings
 
-String literals are the most common way to create strings in JavaScript. String primitives can be created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
+As we said earlier, although primitive strings and string objects are different data types,
+they can be used in the same way.
+That is, you can use the same methods on both string primitives and string objects.
+
+The following code snippet uses the `String` constructor method
+`charAt()` to get the character at the zeroth index of the string primitive type and the string object type:
+
+```javascript
+const stringPrimitive = 'Hello, world'; // string primitive
+
+const stringObject = new String('Hello, world'); // string object
+
+console.log(stringPrimitive.charAt(0)); // H
+
+console.log(stringObject.charAt(0)); // H
+```
+As a JavaScript developer, you will often need to create strings, manipulate strings, and compare strings.
+There are many built-in functions that can be used to work with strings.
+In the upcoming sections, we will explore these functions in more detail.
+Before we do, let's take cover another key concept about strings, immutability.
+
+## String Immutability
+
+Strings are immutable, which means that once they are created, their values cannot be changed.
+For example, the following code snippet creates a string primitive called `name` that stores the value `John`:
+
+```javascript
+const name = 'John';
+```
+
+
+## String Iterability
+
+In ES6, strings are iterable, which means that you can access each character in a string individually. For example, the following code snippet iterates over the characters in the string primitive `name` and logs each character to the console:
+
+```javascript
+const name = 'John';
+
+for (const character of name) {
+    console.log(character);
+}
+```
+
+In the above code snippet, the `for...of` loop is used to iterate over the characters in the string primitive `name`.
 
 The following are valid string literals:
 
@@ -158,22 +257,15 @@ Next, let's move the second type of string, the `String` object.
 
 ### Creating String Primitives using the `String` Constructor
 
-The `String` constructor can be used to create string primitives.
-The `String` constructor is a built-in global object in JavaScript that represents a string of text.
-**It is important to note that the `String` constructor can be used with or without the `new` keyword.**
-When `String()` constructor is called with the `new` keyword, it returns a `String` object.
-When `String()` constructor is called without the `new` keyword, it returns a string primitive.
-This is
-because JavaScript automatically coerces a string
-created using the `String` constructor to a string primitive if the `new` keyword is not used.
+
+Take a look at the following code snippet:
 
 
-Although it is rarely used to create strings,
-it is important to know
-that the `String` constructor can be used to create string primitive and string literals depending on how the String()
-is called.
+### String Primitives are Immutable
 
 
+
+However, there are many built-in functions that can be used to manipulate strings.
 ### Working with Strings
 
 ### String Methods
