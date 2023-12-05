@@ -114,12 +114,17 @@ As we said earlier, there are two ways to create a string primitive in JavaScrip
 String literals are the most common way to create strings in JavaScript.
 The `String` constructor is a built-in global object in JavaScript that represents a string of text.
 Although it is rarely used to create strings,
-it is important to know that the `String` constructor can be used to create strings.
+it is important to know that the `String` constructor can be used to create string primitive and string literals depending on how the String() is called.
 
 ### Creating String Primitives using String Literals
 
 String primitives can be created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
-This is the most common way to create strings in JavaScript.
+Creating string literals is the most common way to create strings in JavaScript among JavaScript developers.
+
+The following are valid string literals:
+
+[INSERT STRING LITERALS EXAMPLES CODE HERE]
+
 Creating a string primitive using single quotes `' '`, double quotes `" "`, or backticks `` ` ` `` has the same result.
 The only requirement is that the opening and closing quotes must match.
 So, if you use single quotes to create a string, you must use single quotes to close the string.
