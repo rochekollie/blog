@@ -45,7 +45,7 @@ emojis `🤣`, `🎅`, `🎆`, `🎇`, `🎈`, `🎉`, `🎄`, `🍕`, `🍺`, `
 As a programmer, you will often need to create strings, manipulate strings, and compare strings.
 You may need to create strings to store textual data, convert strings to uppercase, lowercase, or title case, split a string into an array of substrings, concatenate two or more strings, search for a substring, replace a substring, reverse a string, trim a string, sort a string, compare two strings, and so on.
 
-In this article, we will explore many ways to manipulate strings in JavaScript.
+In this article, we will explore many ways to work with strings in JavaScript.
 However, before we do, we first need to know that there are two types of strings in JavaScript:
 string primitives and string objects.
 Let's jump right in and explore these two types of string.
