@@ -554,7 +554,8 @@ const name = new String('John');
 name.toUpperCase(); // JOHN
 ```
 
-In the above code snippet, the `toUpperCase()` prototype method is called on the `String` object instance `name`. We needed to create an instance of the `String` object to call the `toUpperCase()` prototype method as in the following code snippet:
+In the above code snippet, the `toUpperCase()` prototype method is called on the `String` object instance `name`.
+We cannot call the `toUpperCase()` prototype method directly on the `String` object as in the following code snippet:
 
 ```javascript
 String.toUpperCase(); // TypeError: String.toUpperCase is not a function
