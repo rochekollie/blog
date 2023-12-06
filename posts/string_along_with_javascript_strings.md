@@ -42,10 +42,13 @@ As you can see, a string can be as long as you want it to be.
 It can be a single character (`a`), an empty character containing no characters (` `), your favorite
 emojis `🤣`, `🎅`, `🎆`, `🎇`, `🎈`, `🎉`, `🎄`, `🍕`, `🍺`, `🍩`, `🍪`, `🍫`, `🍬`, `🍭`, `🍮`, or a whole book.
 
-As a programmer, you will often need to create strings, manipulate strings, and compare strings.
+As a JavaScript developer, you will often need to create strings, manipulate strings, and compare strings.
 You may need to create strings to store textual data, convert strings to uppercase, lowercase, or title case, split a string into an array of substrings, concatenate two or more strings, search for a substring, replace a substring, reverse a string, trim a string, sort a string, compare two strings, and so on.
 
-In this article, we will explore many ways to work with strings in JavaScript.
+
+There are many built-in [methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#constructor)
+that can be used to work with strings.
+In this article, we will explore some useful string methods.
 However, before we do, we first need to know that there are two types of strings in JavaScript:
 string primitives and string objects.
 Let's jump right in and explore these two types of string.
@@ -181,26 +184,45 @@ As we said earlier, although primitive strings and string objects are different 
 they can be used in the same way.
 That is, you can use the same methods on both string primitives and string objects.
 
-The following code snippet uses the `String` constructor method
-`charAt()` to get the character at the zeroth index of the string primitive type and the string object type:
+Let's see this in action using the `toUpperCase()` and `slice()` methods:
 
 ```javascript
-const stringPrimitive = 'Hello, world'; // string primitive
+const greeting = 'Hello, world';
 
-const stringObject = new String('Hello, world'); // string object
+const name = 'john';
 
-console.log(stringPrimitive.charAt(0)); // H
-
-console.log(stringObject.charAt(0)); // H
+const sentence = `${greeting}, my name is ${name.charAt(0).toUpperCase() + name.slice(1)}.`;
 ```
-As a JavaScript developer, you will often need to create strings, manipulate strings, and compare strings.
-There are many built-in functions that can be used to work with strings.
-In the upcoming sections, we will explore these functions in more detail.
-Before we do, let's take cover another key concept about strings, immutability.
+
+In the above code snippet, the `toUpperCase()` method is used to convert the first letter of `name` to uppercase.
+The `slice()` method is used to extract the rest of the string after the first letter.
+The `+` operator is used to concatenate the uppercase letter with the rest of the string.
+So, the output of `sentence` is `Hello, world, my name is John.`.
+If you do not understand the above code snippet, don't worry.
+String along,
+as we work with string methods in the upcoming sections.
+Before we do, let's take cover two key concepts about strings: immutability and iterability.
+Let's start with immutability.
 
 ## String Immutability
 
 Strings are immutable, which means that once they are created, their values cannot be changed.
+String immutability is a property of strings in JavaScript that prevents them from being changed once they are created.
+This means that once you create a string, you cannot change its contents, length, or any of its properties.
+
+There are a few ways to work around this limitation.
+One way is to create a new string with the modified contents.
+Another way is to use a string object that implements the .replace() method.
+
+Here is an example of how to use the `.replace()` method to modify a string:
+
+```javascript
+const str = "Hello, world!";
+const newStr = str.replace("world", "universe");
+console.log(newStr); // "Hello, universe!"
+```
+
+
 For example, the following code snippet creates a string primitive called `name` that stores the value `John`:
 
 ```javascript
@@ -221,6 +243,14 @@ for (const character of name) {
 ```
 
 In the above code snippet, the `for...of` loop is used to iterate over the characters in the string primitive `name`.
+
+
+
+## Creating Strings
+
+To create primitive strings using string literals,
+you enclose the string in single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
+
 
 The following are valid string literals:
 
@@ -253,32 +283,13 @@ However, backticks are not interchangeable with single quotes or double quotes.
 Backticks are used to create template literals.
 We will learn about template literals in this article.
 
-Next, let's move the second type of string, the `String` object.
-
-### Creating String Primitives using the `String` Constructor
-
-
-Take a look at the following code snippet:
-
-
-### String Primitives are Immutable
-
-
-
-However, there are many built-in functions that can be used to manipulate strings.
-### Working with Strings
-
-### String Methods
-
-There are many built-in functions that can be used to manipulate strings.
-
 
 Using single quotes `' '` or double quotes `" "`,
 or backticks `` ` ` `` to create a string primitive is a matter of preference.
 However, there are some use cases where one method may be preferred over the other.
 Let's look at some use cases where one method may be preferred over the other.
 
-#### Single Quotes (` ' '` )
+### Single Quotes (`' '`)
 
 Single quotes are the most common way to create strings in JavaScript.
 They are used to create strings that are short
@@ -308,73 +319,141 @@ the JavaScript interpreter thinks that the string ends at the first single quote
 (`'`) and the rest of the string is invalid JavaScript code.
 
 
+### Double Quotes (`" "`)
 
-
-#### Double Quotes (` " "` )
-
-A string can also be created using double quotes (`""`).
-Double quotes are also used to create strings that are short and readable.
-They are used to create strings that contain single quotes.
-For example, the following code snippet creates a
-string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
+Double quotes (`""`) are also used to create strings that are short and readable.
+They are used to create strings that contain single quotes:
 
 ```javascript
 const sentence = "I can't believe it's not butter!";
 ```
 
-There are many reasons you may want to use double quotes to create a string.
-The following are some use cases where you may want to use double quotes to create a string: 
-
-- String that contains single quotes: `"I can't wait to see you."`
-- String that contains double quotes: `"He said, "Watch the giant fall.""`
-- String that contains backticks: `"I'm a template literal."`
-
-In the above code snippet, the double quotes (`""`) are used to enclose the string.
-The single quotes (`''`) are used to enclose the string that contains single quotes (`'`).
-
-In the code snippet above, the double quotes (`""`) are used to enclose the string.
-The single quotes (`''`) are used to enclose the string that contains single quotes `'`. The backslash `\ ` is used to
-escape the single quotes `'` in the string.
-
-#### Escape Characters
-
-To fix this error, you can escape the single quotes (`''`) using the backslash (`\ `):
+In the above code snippet,
+the double quotes (`""`) are needed to enclose the string because the string contains words that contain single quotes
+(`'`).
+Because an apostrophe is used in the words `can't` and `it's`, the string must be enclosed in double quotes (`""`).
+Enclosing the string in single quotes (`''`) would result in a syntax error:
 
 ```javascript
-const sentence = 'He said, \'Watch the giant fall.\'';
-````
-
-Single quotes are also used to create strings that contain single quotes.
-For example, the following code snippet creates a string variable called `sentence` that stores the
-value `He said, "I'm a string."`:
-
-```javascript
-let sentence = 'He said, "I\'m a string."';
-
-console.log(sentence); // He said, "I'm a string."
+const sentence = 'I can't believe it's not butter!'; // SyntaxError: Unexpected identifier
 ```
 
-In the above code snippet, the double quotes (`""`) are used to enclose the string. The single quotes (`''`) are used to
-enclose the string that contains double quotes (`""`).
+In the above code snippet, the single quotes (`''`) are used to enclose the string.
+Because an apostrophe is the same as a single quote (`'`),
+the JavaScript interpreter thinks that the string ends at the first single quote
+(`'`) and the rest of the string is invalid JavaScript code. 
+
+Double quotes (`""`) are also used to create strings that contain double quotes:
 
 ```javascript
-let sentence = 'He said, "I\'m a string."';
+const sentence = "He said, \"Watch the giant fall.\"";
 ```
 
-In the above code snippet, the backslash `\ ` is used to escape the double quotes `"` in the string. The backslash `\ `
-is used to escape characters that have special meaning in JavaScript.
+### Backticks (` `` `)
 
-#### Backticks (` `` `)
+Backticks are used to create template literals.
+Template literals are used to create strings that contain placeholders.
+This is known as string interpolation.
+String interpolation is a process of evaluating a string literal containing one or more placeholders.
+It is a feature of ES6 that allows you to insert variables into a string.
 
-Backticks are used to create template literals. Template literals are used to create strings that contain placeholders.
-For example, the following code snippet creates a string variable called `sentence` that stores the
-value `He said, "Watch the giant fall."`:
+Let's take a look at an example of string interpolation:
 
 ```javascript
 const sentence = `He said, "Watch the giant fall."`;
 ```
 
-#### Building and Concatenating Strings
+While the above code snippet works, it is not the ideal way to create a string that contains placeholders.
+That is, when using template literals, you should use placeholders instead of hard-coding the values.
+Your string should contain placeholders that will be replaced with the actual values.
+Your placeholders can be variables, expressions, or functions.
+
+The follow code snippet demonstrates how to use placeholders in a template literal:
+
+```javascript
+const noun = 'giant';
+const sentence = `He said, "Watch the ${noun} fall."`;
+console.log(sentence); // He said, "Watch the giant fall."
+
+const number = 100;
+const sentence = `He said, "Watch the ${number} foot ${noun} fall."`;
+console.log(sentence); // He said, "Watch the 100 foot giant fall."
+
+const getNoun = () => 'giant';
+
+const sentence = `He said, "Watch the ${getNoun()} fall."`;
+console.log(sentence); // He said, "Watch the giant fall."
+```
+
+In the above code snippet, the placeholders are indicated by the dollar sign and curly braces `${}`.
+The placeholders are replaced with the value of the variables, expressions, or functions.
+For example, the placeholder
+`${noun}` is replaced with the value of the variable `noun`, which is `giant`.
+The placeholder `${number}` is replaced with the value of the variable `number`, which is `100`.
+The placeholder
+`${getNoun()}` is replaced with the value of the function `getNoun()`, which is `giant`.
+The output of first `console.log(sentence)` is `He said, "Watch the giant fall."`.
+The next output is `He said, "Watch the 100 foot giant fall."`.
+And the last output is `He said, "Watch the giant fall."`.
+
+### Escape Sequences
+
+In computer science,
+escape sequences are character combinations that have a different meaning than the characters they contain.
+They are used to represent characters that are difficult or impossible to represent directly.
+
+Escape sequences are used to represent:
+
+- A newline character
+- A single quotation mark
+- Certain other characters in a character constant
+- Special characters, such as tabs, carriage returns, and quotation marks
+
+Here are some examples of escape sequences in most programming languages:
+
+- `\n` - newline
+- `\t` - tab
+- `\r` - carriage return
+- `\b` - backspace
+- `\'` - single quote
+- `\"` - double quote
+- `\\` - backslash
+
+In JavaScript, the backslash (`\ `) is used as an escape character.
+An escape character is a character that has a special meaning in JavaScript.
+For example, the single quote (`'`) is a special character in JavaScript.
+It is used to enclose strings.
+However, if you want to use a single quote (`'`) in a string that is enclosed in single quotes (`''`),
+you must escape it using the backslash (`\ `).
+
+Let's go back to one of our earlier examples:
+
+```javascript
+const sentence = "I can't believe it's not butter!";
+```
+
+Because an apostrophe is used in the words `can't` and `it's`, the string must be enclosed in double quotes (`""`).
+However, if you still wanted to enclose the string in single quotes (`''`), you would have to escape the single quotes
+(`''`) using the backslash (`\ `):
+
+```javascript
+const sentence = 'I can\'t believe it\'s not butter!';
+```
+
+In the above code snippet, the backslash (`\ `) is used to escape the single quotes (`''`) in the string.
+The escape character (`\ `) can also be used to escape double quotes
+(`""`) in a string that is enclosed in double quotes
+(`""`).
+For example,
+the following code snippet creates a string variable called `sentence` that stores the value `He said, "Watch the giant fall."`:
+
+```javascript
+const sentence = "He said, \"Watch the giant fall.\"";
+```
+
+In the above code snippet, the backslash (`\ `) is used to escape the double quotes (`""`) in the string.
+
+### Concatenating Strings
 
 Sometimes you may need to build a string by concatenating two or more strings together.
 A string can be concatenated by joining together two or more strings.
@@ -388,105 +467,122 @@ For example, the following code snippet concatenates the strings `hello` and `wo
 'hello' + 'world'; // helloworld
 ```
 
-A string can also be interpolated using template literals:
+As stated, we can also build strings by interpolating variables, expressions, or functions into a string using template literals.
 
 ```javascript
 const greeting = 'Hello';
 console.log(`${greeting}! I'm a template literal.`); // Hello! I'm a template literal.
 ```
 
-String interpolation is a process of evaluating a string literal containing one or more placeholders.
-It is a feature of ES6 that allows you to insert variables into a string.
-The placeholders are indicated by the dollar sign and curly braces `${}`.
-The placeholders are replaced with the value of the variables.
+## String Methods
 
-Regardless of how a string primitive is created, it is a primitive data type and has no methods of its own.
-However, there are many built-in functions that can be used to manipulate strings.
-We will learn more about these functions in this article.
-Before we do, let's take a look at the `String` object.
+The `String` object has a number of methods that allow you to manipulate the string.
+There are two types of methods available on the `String` object: static methods and prototype methods.
+Static methods are called directly on the `String` object.
+Prototype methods are called on an instance of the `String` object.
+Let's see what this means in practice.
 
+### Static Methods
 
-A string primitive is created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
-The following code snippets show how to create strings using each of these methods.
+When we say that static methods are called directly on the `String` object,
+we mean that they are called directly on the `String` object without creating an instance of the `String` object.
+That is, they are called on the `String` object itself.
+You do not need to create an instance of the `String` object to call a static method.
 
-A string primitive is created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
-The following code snippets show how to create strings using each of these methods.
-
-A primitive is a data type that is not an object and has no methods.
-A method is a function associated with an object.
-A string primitive is created using single quotes `' '`, double quotes `" "`, or backticks `` ` ` ``.
-The following code snippets show how to create strings using each of these methods.
+For example, the following code snippet calls the `String.fromCharCode()` static method on the `String` object:
 
 ```javascript
-'hello world'; // single quotes
-
-"I'm a string"; // double quotes
-
-`I'm a template literal.`; // backticks
+String.fromCharCode(74, 111, 104, 110); // John
 ```
 
-We can also create a string primitive using the `String` constructor:
+In the above code snippet, the `String.fromCharCode()` static method is called directly on the `String` object.
+We did not need to create an instance of the `String` object to call the `String.fromCharCode()` static method as in the following code snippet:
 
 ```javascript
-const stringPrimitive = String('Hello, world'); // String constructor
+const name = new String('John');
+name.fromCharCode(74, 111, 104, 110); // TypeError: name.fromCharCode is not a function
 ```
 
-Note that in the above code snippet, `String()` is called without the `new` keyword.
-`String()` can be called with or without the `new` keyword.
-When `String()` is called **with** the `new` keyword, it returns a `String` object.
-When `String()` is called **without** the `new` keyword, it returns a string primitive.
-This is
-because JavaScript automatically coerces a string
-created using the `String` constructor to a string primitive if the `new` keyword is not used.
-
-Take a look at the following code snippet:
+The code above will throw an error because the `String.fromCharCode()` static method is not a prototype method.
+It is a static method.
+If the concept of static methods is new to you,
+the easier way to think about static methods is to think of them as functions that are attached to the `String` object.
+You may have seen this before when working with the `Math` or `Array` objects.
+For example, the following code uses static methods on the `Math` and `Array` objects:
 
 ```javascript
-const stringObject = new String('Hello, world'); // String object
+Math.random(); // 0.12345678910111213
 
-const stringPrimitive = String('Hello, world'); // string primitive
+Math.ceil(1.1); // 2
+
+Math.floor(1.9); // 1
+
+Math.round(1.5); // 2
+
+Array.isArray([1, 2, 3]); // true
+
+Array.from('John'); // ['J', 'o', 'h', 'n']
+
+Array.of(1, 2, 3); // [1, 2, 3]
 ```
 
-In the above code snippet, `stringObject`
-is a `String` object
-and `stringPrimitive` is a string primitive
-because the `new` keyword is used with `String()` in the first line and omitted in the second line.
+As demonstrated in the code above, static methods are called directly on the `Math` and `Array` objects.
+We did not need to create an instance of the `Math` or `Array` object to call the static methods.
+We just called the static methods directly on the `Math` and `Array` objects.
+The same goes for the `String` object.
+What you need to know when using static methods is
+that the name of the object is used to call the static method as in `Math.random()`,
+`Math.ceil()`, `Math.floor()`, `Math.round()`, `Array.isArray()`,
+`Array.from()`, `Array.of()`, and `String.fromCharCode()`.
 
-The following are valid string primitive variables:
+### Prototype Methods
+
+When we say that prototype methods are called on an instance of the `String` object,
+we mean that they are called on an instance of the `String` object.
+That is, they are called on the `String` object instance itself. You need to create an instance of the `String` object to call a prototype method.
+
+For example,
+the following code snippet calls the `toUpperCase()` prototype method on the `String` object instance `name`:
 
 ```javascript
-const greeting = 'Hello, world';
-
-const name = 'john';
-
-const sentence = `${greeting}, my name is ${name}.`;
-
-const stringPrimitive = String('I am also a primitive.');
+const name = new String('John');
+name.toUpperCase(); // JOHN
 ```
 
-## String Objects
-
-
-with or without the `new` keyword.
-When `String()` is called **with the `new` keyword**, it returns a `String` object.
-When `String()` is called **without the `new` keyword**, it returns a string primitive.
-We will also cover the difference between these two concepts in the next section.
-
-
-The `String` object is a wrapper around the `string` primitive data type.
-A wrapper is an object that contains a primitive data type
-and has methods that can be used to manipulate the primitive data type.
-The `String` object can be used to create strings using the `new` keyword.
-
-For example, the following code snippet creates a string object:
+In the above code snippet, the `toUpperCase()` prototype method is called on the `String` object instance `name`. We needed to create an instance of the `String` object to call the `toUpperCase()` prototype method as in the following code snippet:
 
 ```javascript
-let stringObject = new String('This is a string object.'); // String object
+String.toUpperCase(); // TypeError: String.toUpperCase is not a function
 ```
 
-In the above code snippet, the `String` object is used to create a string object called `stringObject`.
-The `String` object is a built-in global object in JavaScript that represents a string of text.
-It has a number of methods that allow you to manipulate the string, such as:
+The code above will throw an error because the `toUpperCase()` is not a static method.
+It is a prototype method.
+
+Whether using static or prototype methods, recall that JavaScript is case-sensitive.
+Therefore, the object name must be capitalized and spelled exactly as it is in the documentation.
+Therefore, `String.fromCharCode()` is not the same as `string.fromCharCode()`.
+The same is true that `name.toUpperCase()` is not the same as `name.toUppercase()`.
+
+Now that we've covered the two types of methods available on the `String` object,
+it is time to learn about some of the most commonly used string methods.
+Please note that this is not an exhaustive list of all the methods available on the `String` object.
+There are many more methods available on the `String` object.
+You can find a complete list of methods on the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#constructor).
+With no further ado, let's get coding.
+
+### `charAt()`
+
+The `charAt()` method returns the character at the specified index in a string. Indexing starts at zero. For example, the following code snippet returns the character at index 0 in the string `John`:
+
+```javascript
+const name = 'John';
+console.log(name.charAt(0)); // J
+```
+
+### `charCodeAt()`
+
+
+## Useful String Methods
 
 - `charAt()` - returns the character at the specified index.
 - `charCodeAt()` - returns the Unicode of the character at the specified index.
@@ -504,74 +600,25 @@ It has a number of methods that allow you to manipulate the string, such as:
 - `toLocaleLowerCase()` - converts a string to lowercase letters, according to the host's current locale.
 - `toLocaleUpperCase()` - converts a string to uppercase letters, according to the host's current locale.
 - `trim()` - removes whitespace from both ends of a string.
-
-As you can see,
-the `String` object has many useful methods
-that can be used to manipulate strings while the string primitive has no methods of its own.
-However, JavaScript behind the scenes converts string primitives to string objects
-when a string primitive is used with a method.
-For this reason, you can use methods on string primitives as if they were string objects.
-For example, the `toUpperCase()` method is associated with the `String` object.
-If we go back to our code snippet,
-can change the first letter of `name` to uppercase using the methods associated with the `String` object:
-
-```javascript
-const greeting = 'Hello, world';
-
-const name = 'john';
-
-const sentence = `${greeting}, my name is ${
-    name.charAt(0).toUpperCase() + name.slice(1)
-}.`;
-```
-
-In the above code snippet, the `toUpperCase()` method is used to convert the first letter of `name` to uppercase.
-The `slice()` method is used to extract the rest of the string after the first letter.
-The `+` operator is used to concatenate the uppercase letter with the rest of the string.
-So, the output of `sentence` is `Hello, world, my name is John.`.
-If you do not understand the above code snippet, don't worry.
-String along, and you will understand it soon enough as we explore our next section, string methods.
-
-## String methods
-
-A string method is a function associated with a string object.
-Going back to string primitive vs a string object, we stated that a string primitive has no methods of its own.
-Therefore, a string primitive cannot be used with a method.
-However, JavaScript behind the scenes converts string primitives to string objects when a string primitive is used with
-a method.
-For this reason, you can use methods on string primitives as if they were string objects.
-For example, the `toUpperCase()` method is associated with the `String` object.
-
-Strings are immutable, which means that once they are created, their values cannot be changed. In ES6, strings are also
-iterable, which means that you can access each character in a string individually. We will learn more about immutability
-and iterability in this article. For now, let's focus on the basics of strings.
-
-### Methods:
-
-The `String` object can also be used to create strings using the `toString()` method. For example, the following code
-snippet creates a string variable called `name` that stores the value `John`:
-
-```javascript
-let name = (123).toString(); // toString() method
-```
-
-The `String` object can also be used to create strings using the `valueOf()` method. For example, the following code
-snippet creates a string variable called `name` that stores the value `John`:
-
-```javascript
-let name = (123).valueOf(); // valueOf() method
-```
-
-The `String` object can also be used to create strings using the `String.fromCharCode()` method. For example, the
-following code snippet creates a string variable called `name` that stores the value `John`:
-
-```javascript
-let name = String.fromCharCode(74, 111, 104, 110); // fromCharCode() method
-```
-
-The `String` object can also be used to create strings using the `String.fromCodePoint()` method. For example, the
-following code snippet creates a string variable called `name` that stores the value `John`:
-
-```javascript
-let name = String.fromCodePoint(74, 111, 104, 110); // fromCodePoint() method
-```
+- `valueOf()` - returns the primitive value of a `String` object.
+- `toString()` - returns a string representing the specified object.
+- `fromCharCode()` - converts Unicode values to characters.
+- `fromCodePoint()` - returns a string created by using the specified sequence of code points.
+- `toUpperCase()` - converts a string to uppercase letters.
+- `toLowerCase()` - converts a string to lowercase letters.
+- `includes()` - determines whether a string contains the characters of a specified string.
+- `endsWith()` - determines whether a string ends with the characters of a specified string.
+- `startsWith()` - determines whether a string begins with the characters of a specified string.
+- `repeat()` - returns a new string with a specified number of copies of an existing string.
+- `padEnd()` - pads the current string with a given string (repeated, if needed) so that the resulting string reaches
+  a given length.
+- `padStart()` - pads the current string with another string (multiple times, if needed) until the resulting string
+  reaches the given length.
+- `match()` - searches a string for a match against a regular expression, and returns the matches, as an Array object.
+- `matchAll()` - returns an iterator of all results matching a string against a regular expression, including
+  capturing groups.
+- `normalize()` - returns the Unicode Normalization Form of a given string.
+- `repeat()` - returns a new string with a specified number of copies of an existing string.
+- `replace()` - searches a string for a specified value, or a regular expression, and returns a new string where the
+  specified values are replaced.
+- `replaceAll()` - returns a new string with all matches of a pattern replaced by a replacement.
