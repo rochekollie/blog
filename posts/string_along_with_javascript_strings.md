@@ -355,9 +355,8 @@ const name = String('John"); // SyntaxError: Unexpected identifier
 
 If you use single quotes to create a string, you must use single quotes to close the string.
 The same goes for double quotes and backticks.
-Single quotes and double quotes are interchangeable.
-However, backticks are not interchangeable with single quotes or double quotes.
-Backticks are used to create template literals.
+Single quotes, double quote, backticks are interchangeable.
+However, backticks are used to create template literals.
 We will learn about template literals in this article.
 
 Using single quotes `' '` or double quotes `" "`,
