@@ -219,7 +219,8 @@ Let's start with immutability.
 
 Strings are immutable, which means that once they are created, their values cannot be changed.
 String immutability is a property of strings in JavaScript that prevents them from being changed once they are created.
-This means that once you create a string, you cannot change its contents, length, or any of its properties.
+This means that once you create a string, you cannot change its contents, length, or any of its properties. However, new
+strings can be created based on existing ones.
 
 There are a few ways to work around this limitation.
 One way is to create a new string with the modified contents.
@@ -481,11 +482,15 @@ The output of first `console.log(sentence)` is `He said, "Watch the giant fall."
 The next output is `He said, "Watch the 100 foot giant fall."`.
 And the last output is `He said, "Watch the giant fall."`.
 
+Template literals (introduced with backticks) allow for easy string interpolation, enabling the embedding of expressions
+within strings.
+
 ### Escape Sequences
 
 In computer science,
 escape sequences are character combinations that have a different meaning than the characters they contain.
-They are used to represent characters that are difficult or impossible to represent directly.
+They are used to represent characters that are difficult or impossible to represent directly. Special characters can be
+included in strings using escape characters, such as `\n` for a new line or `\"` for a double quote within a string.
 
 Escape sequences are used to represent:
 
@@ -914,20 +919,23 @@ The `indexOf()` method returns the index of the first occurrence of a specified 
 is not found, it returns `-1`.
 
 ```javascript
-let str = "Hello World";
-let result = str.indexOf("World");
-console.log(result); // 6
+const sentence = 'JavaScript is powerful and versatile.';
+const index = sentence.indexOf('is');
+console.log(index); // 11
 ```
 
 ### `lastIndexOf()`
 
-The `lastIndexOf()` method returns the index of the last occurrence of a specified text in a string. If the specified
+Similar to `indexOf()`, the `lastIndexOf()` method returns the index of the last occurrence of a specified text in a
+string. If the specified
 text is not found, it returns `-1`.
 
 ```javascript
 let str = "Hello World, welcome to the World";
 let result = str.lastIndexOf("World");
 console.log(result); // 24
+
+console.log(str.lastIndexOf("World", 24)); //
 ```
 
 ### `length`
@@ -956,20 +964,20 @@ The `search()` method searches a string for a specified value and returns the in
 it returns `-1`.
 
 ```javascript
-let str = "Hello World";
-let result = str.search("World");
-console.log(result); // 6
+const text = 'JavaScript is fun!';
+const position = text.search('fun');
+console.log(position); // 13
 ```
 
 ### `slice()`
 
 The `slice()` method extracts a part of a string and returns the extracted part in a new string. It takes two
-parameters: the start position, and the end position (end not included).
+parameters: the `start` position (inclusive), and the `end` position (exclusive).
 
 ```javascript
-let str = "Hello World";
-let result = str.slice(0, 5);
-console.log(result); // "Hello"
+const sentence = 'Extract this part.';
+const extracted = sentence.slice(8, 16);
+console.log(extracted); // this part
 ```
 
 ### `split()`
@@ -977,9 +985,9 @@ console.log(result); // "Hello"
 The `split()` method is used to split a string into an array of substrings, and returns the new array.
 
 ```javascript
-let str = "Hello World";
-let result = str.split(" ");
-console.log(result); // ["Hello", "World"]
+const colors = 'red,green,blue';
+const colorArray = colors.split(',');
+console.log(colorArray); // ['red', 'green', 'blue']
 ```
 
 ### `substr()`
@@ -988,9 +996,9 @@ The `substr()` method returns the characters in a string beginning at the specif
 number of characters.
 
 ```javascript
-let str = "Hello World";
-let result = str.substr(0, 5);
-console.log(result); // "Hello"
+const text = 'JavaScript is amazing!';
+const substring = text.substr(11, 7);
+console.log(substring); // amazing
 ```
 
 ### `substring()`
@@ -998,9 +1006,9 @@ console.log(result); // "Hello"
 The `substring()` method returns the characters in a string between two specified indices.
 
 ```javascript
-let str = "Hello World";
-let result = str.substring(0, 5);
-console.log(result); // "Hello"
+const text = 'JavaScript is powerful.';
+const substring = text.substring(11, 19);
+console.log(substring); // powerful
 ```
 
 ### `toLocaleLowerCase()`
@@ -1028,9 +1036,9 @@ console.log(result); // "HELLO WORLD"
 The `trim()` method removes whitespace from both ends of a string.
 
 ```javascript
-let str = "   Hello World   ";
-let result = str.trim();
-console.log(result); // "Hello World"
+const spacedText = '   Trim me!   ';
+const trimmedText = spacedText.trim();
+console.log(trimmedText); // Trim me!
 ```
 
 ### `valueOf()`
@@ -1051,6 +1059,10 @@ The `toString()` method returns a string representing the specified object.
 let str = new String("Hello World");
 let result = str.toString();
 console.log(result); // "Hello World"
+
+let num = 42;
+let str = num.toString();
+console.log(str); // "42"
 ```
 
 ### `fromCharCode()`
@@ -1060,6 +1072,9 @@ The `fromCharCode()` method converts Unicode values to characters.
 ```javascript
 let result = String.fromCharCode(72, 101, 108, 108, 111);
 console.log(result); // "Hello"
+
+let charCode = String.fromCharCode(65, 66, 67);
+console.log(charCode); // ABC
 ```
 
 ### `fromCodePoint()`
@@ -1069,6 +1084,9 @@ The `fromCodePoint()` method returns a string created by using the specified seq
 ```javascript
 let result = String.fromCodePoint(72, 101, 108, 108, 111);
 console.log(result); // "Hello"
+
+let codePointStr = String.fromCodePoint(65, 66, 67);
+console.log(codePointStr); // ABC
 ```
 
 ### `toUpperCase()`
@@ -1096,9 +1114,9 @@ console.log(result); // "hello world"
 The `includes()` method determines whether a string contains the characters of a specified string.
 
 ```javascript
-let str = "Hello World";
-let result = str.includes("World");
-console.log(result); // true
+const text = 'In the beginning God created the heavens and the earth.';
+const containsSearch = text.includes('The Big Bang Theory');
+console.log(containsSearch); // false
 ```
 
 ### `endsWith()`
@@ -1106,9 +1124,9 @@ console.log(result); // true
 The `endsWith()` method determines whether a string ends with the characters of a specified string.
 
 ```javascript
-let str = "Hello World";
-let result = str.endsWith("World");
-console.log(result); // true
+const text = 'Check the end!';
+const endsWithCheck = text.endsWith('end!');
+console.log(endsWithCheck); // true
 ```
 
 ### `startsWith()`
@@ -1116,19 +1134,9 @@ console.log(result); // true
 The `startsWith()` method determines whether a string begins with the characters of a specified string.
 
 ```javascript
-let str = "Hello World";
-let result = str.startsWith("Hello");
-console.log(result); // true
-```
-
-### `repeat()`
-
-The `repeat()` method returns a new string with a specified number of copies of an existing string.
-
-```javascript
-let str = "Hello";
-let result = str.repeat(3);
-console.log(result); // "HelloHelloHello"
+const text = 'Start with me!';
+const startsWithStart = text.startsWith('Start');
+console.log(startsWithStart); // true
 ```
 
 ### `padEnd()`
@@ -1140,6 +1148,14 @@ reaches a given length.
 let str = "Hello";
 let result = str.padEnd(10, " World");
 console.log(result); // "Hello World"
+
+const text = 'Pad me!';
+const paddedEnd = text.padEnd(10, '-');
+console.log(paddedEnd);   // Pad me!---
+
+let str = "Hello";
+let paddedStr = str.padEnd(8, "!");
+console.log(paddedStr); // Output: Hello!!!
 ```
 
 ### `padStart()`
@@ -1151,6 +1167,14 @@ string reaches the given length.
 let str = "World";
 let result = str.padStart(10, "Hello ");
 console.log(result); // "Hello World"
+
+const text = 'Pad me!';
+const paddedStart = text.padStart(10, '*');
+console.log(paddedStart); // Output: ***Pad me!
+
+let str = "42";
+let paddedStr = str.padStart(5, "0");
+console.log(paddedStr); // 00042
 ```
 
 ### `match()`
@@ -1162,6 +1186,14 @@ object.
 let str = "Hello World";
 let result = str.match(/World/);
 console.log(result); // ["World", index: 6, input: "Hello World", groups: undefined]
+
+const text = 'Match this text.';
+const matches = text.match(/this/);
+console.log(matches[0]); // this
+
+let str = "Hello, World!";
+let matches = str.match(/o/g);
+console.log(matches); // Output: ['o', 'o']
 ```
 
 ### `matchAll()`
@@ -1173,6 +1205,23 @@ capturing groups.
 let str = "Hello World, welcome to the World";
 let result = [...str.matchAll(/World/g)];
 console.log(result); // [["World", index: 6, input: "Hello World, welcome to the World", groups: undefined], ["World", index: 24, input: "Hello World, welcome to the World", groups: undefined]]
+
+const text = 'Match all occurrences.';
+const regex = /occurrence/g;
+const matchesIterator = text.matchAll(regex);
+for (const match of matchesIterator) {
+    console.log(match[0]); // occurrence
+}
+
+let str = "Hello, World!";
+let regex = /o/g;
+let matchesIterator = str.matchAll(regex);
+for (let match of matchesIterator) {
+    console.log(match[0]);
+}
+// Output:
+// 'o'
+// 'o'
 ```
 
 ### `normalize()`
@@ -1183,6 +1232,10 @@ The `normalize()` method returns the Unicode Normalization Form of a given strin
 let str = "The \u212B symbol invented by A. J. \u00C5ngstr\u00F6m (1814, L\u00F6gd\u00F6, \u2013 1874) denotes the length 10\u207B\u00B9\u2070 m.";
 let result = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 console.log(result); // "The A symbol invented by A. J. Angstrom (1814, Logdo, – 1874) denotes the length 10-10 m."
+
+const accented = 'n\u00FCll';
+const normalized = accented.normalize();
+console.log(normalized); // nüll
 ```
 
 ### `repeat()`
@@ -1190,9 +1243,9 @@ console.log(result); // "The A symbol invented by A. J. Angstrom (1814, Logdo, �
 The `repeat()` method returns a new string with a specified number of copies of an existing string.
 
 ```javascript
-let str = "Hello";
-let result = str.repeat(3);
-console.log(result); // "HelloHelloHello"
+const original = 'Repeat me! ';
+const repeated = original.repeat(3);
+console.log(repeated); // Repeat me! Repeat me! Repeat me!
 ```
 
 ### `replace()`
@@ -1214,6 +1267,10 @@ The `replaceAll()` method returns a new string with all matches of a pattern rep
 let str = "Hello World, welcome to the World";
 let result = str.replaceAll("World", "Universe");
 console.log(result); // "Hello Universe, welcome to the Universe"
+
+const text = 'Replace all occurrences.';
+const replaced = text.replaceAll('all', 'some');
+console.log(replaced); // Replace some occurrences.
 ```
 
 JavaScript provides a rich set of string manipulation methods that empower developers to work with text efficiently. In
@@ -1242,8 +1299,12 @@ including `charAt()`, `charCodeAt()`, `concat()`, `indexOf()`, `lastIndexOf()`, 
 and `replaceAll()`.
 
 In summary, this article is a comprehensive guide to understanding and working with strings in JavaScript, covering
-everything from creation, manipulation, properties, and methods.
+everything from creation, manipulation, properties, and methods. JavaScript strings play a crucial role in web
+development, serving as a fundamental data type for handling and manipulating textual information in applications and
+websites.
 
 I hope this comprehensive guide was helpful in enhancing your understanding of working with strings in the JavaScript
 language. If you have any questions or feedback, please feel free to reach out to me
-on [Twitter](https://twitter.com/rochekollie).
+on [Twitter](https://twitter.com/rochekollie). I would love to hear from you.
+
+Stringing along, and happy coding!
