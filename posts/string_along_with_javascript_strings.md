@@ -157,7 +157,7 @@ console.log(typeof stringPrimitive); // string
 Although it is rarely used to create strings,
 it is important to know
 that the `String` constructor can be used to create string primitives and string objects.
-What you need to know is that regardless of how a string is primitive is created,
+What you need to know is that regardless of how a string primitive is created,
 it is still a string primitive type and has no methods of its own.
 On the other hand, a string object is an instance of the `String` object and has many methods of its own.
 With this fact in mind, we may be tempted to think that from the code above, `stringPrimitive` has no methods at all.
