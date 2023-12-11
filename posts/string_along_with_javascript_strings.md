@@ -319,7 +319,8 @@ n
 ```
 
 String iterability is a property of strings in JavaScript that was introduced in ES6. In the previous code snippet, we
-used the `for...of` loop to iterate over the characters in the string primitive `name`. Now, with this added knowledge, let's learn about creating
+used the `for...of` loop to iterate over the characters in the string primitive `name`. Now, with this added knowledge,
+let's learn about creating
 strings.
 
 ## Creating Strings
@@ -362,12 +363,12 @@ We will learn about template literals in this article.
 Using single quotes `' '` or double quotes `" "`,
 or backticks `` ` ` `` to create a string primitive is a matter of preference.
 However, there are some use cases where one method may be preferred over the other.
-Let's look at some use cases where one method may be preferred over the other.
+Let's look at some use cases.
 
 ### Single Quotes (`' '`)
 
-Single quotes are the most common way to create strings in JavaScript.
-They are used to create strings that are short
+Using single quotes is the most common way to create strings in JavaScript.
+It is used to create strings that are short
 and readable.
 Single quotes are also used to create strings that contain double quotes.
 For example, the following code snippet
@@ -427,12 +428,6 @@ Because an apostrophe is the same as a single quote (`'`),
 the JavaScript interpreter thinks that the string ends at the first single quote
 (`'`) and the rest of the string is invalid JavaScript code.
 
-Double quotes (`""`) are also used to create strings that contain double quotes:
-
-```javascript
-const sentence = "He said, \"Watch the giant fall.\"";
-```
-
 ### Backticks (` `` `)
 
 Backticks are used to create template literals.
@@ -452,7 +447,7 @@ That is, when using template literals, you should use placeholders instead of ha
 Your string should contain placeholders that will be replaced with the actual values.
 Your placeholders can be variables, expressions, or functions.
 
-The follow code snippet demonstrates how to use placeholders in a template literal:
+The following code snippet demonstrates how to use placeholders in a template literal:
 
 ```javascript
 const noun = 'giant';
@@ -476,9 +471,9 @@ For example, the placeholder
 The placeholder `${number}` is replaced with the value of the variable `number`, which is `100`.
 The placeholder
 `${getNoun()}` is replaced with the value of the function `getNoun()`, which is `giant`.
-The output of first `console.log(sentence)` is `He said, "Watch the giant fall."`.
+The output of the first `console.log(sentence)` is `He said, "Watch the giant fall."`.
 The next output is `He said, "Watch the 100 foot giant fall."`.
-And the last output is `He said, "Watch the giant fall."`.
+And the last output is evaluated to `He said, "Watch the giant fall."`.
 
 Template literals (introduced with backticks) allow for easy string interpolation, enabling the embedding of expressions
 within strings.
@@ -520,8 +515,10 @@ Let's go back to one of our earlier examples:
 const sentence = "I can't believe it's not butter!";
 ```
 
-Because an apostrophe is used in the words `can't` and `it's`, the string must be enclosed in double quotes (`""`).
-However, if you still wanted to enclose the string in single quotes (`''`), you would have to escape the single quotes
+As we said, because an apostrophe is used in the words `can't` and `it's`, the string must be enclosed in double
+quotes (`""`).
+However, if you still wanted to enclose the string in single quotes (`''`) for a particular reason, you would have to
+escape the single quotes
 (`''`) using the backslash (`\ `):
 
 ```javascript
@@ -567,28 +564,42 @@ console.log(`${greeting}! I'm a template literal.`); // Hello! I'm a template li
 ### String `length` Property
 
 The `String` data type has a special property called `length` that returns the length of a string. The length of a
-string is the number of characters in the string. A property is the value of an object. A property has a name and a
-value. You may think of it as a variable attached to an object. It can be a primitive value, like a number or string, or
+string is the number of characters in the string. A property is a data value of an object. You may think of it as a
+variable attached to an object. It can be a primitive value, like a number or string, or
 it can be a function, known as a method which we will cover next. A property is accessed by using the dot (`.`)
 notation. The dot notation is known as property accessor. It is used to provide access to the properties and methods of
-an object. You have seen this throughout this article when we used the `console.log()` method to log a value to the
-console.
+an object. You have seen the property accessor throughout this article, for example; each time we used
+the `console.log()` method to log a value to the
+console, we used the dot notation to access the `log` method of the `console` object as in the following code snippet:
 
 ```javascript
 console.log('Hello world.'); // Hello world.
 ```
 
-In the above code snippet, the `console` object has a method called `log` that is used to log a value to the console. We
-can access `log` method by using the dot (`.`) notation as in `console.log()`.
+The `console` object has a method called `log` that is used to log a value to the console.
+We can access `log` method by using the dot (`.`) notation as in `console.log()`.
+In the same regard, the string `length` property is accessed by using the dot (`.`) notation as
+in `stringVariable.length`.
 
-String indexing starts at zero. Therefore, JavaScript indexes the first character in a string at zero as in `0`, `1`,
-`2`, `3`, and so on. Please note that this does not mean that the first character in a string is zero. This also does
-not mean that when we count the length of a string like `John`, we start counting at zero and say that the length
-of `John` is `3` as in `0`, `1`, `2`, `3`. When we count the characters in a string, we start counting at `1` as
-in `1`, `2`, `3`, `4`, and so on. Therefore, the length of `John` is `4`. However, when we index the characters in a
-string, we start indexing at zero as in `0`, `1`, `2`, `3`, and so on. Indexing and counting are two different things. A
-string's length is the number of characters in the string. A string's index is the position of a character in the
-string. Indexing starts at zero. Counting starts at one. For example, the following code snippet returns the length of
+When using the `length` property, keep in mind that string indexing starts at zero.
+Therefore, JavaScript indexes the first character in a string at zero as in `0`, `1`,
+`2`, `3`, and so on.
+Please note that this does not mean that when we count the length of a string like `John`,
+we start counting at zero and say that the length
+of `John` is `3` as in `0`, `1`, `2`, `3`.
+When we count the characters in a string, we start counting at `1` as
+in `1`, `2`, `3`, `4`, and so on.
+Therefore, the length of `John` is `4`.
+However, when we index the characters in a
+string, we start indexing at zero as in `0`, `1`, `2`, `3`, and so on.
+Indexing and counting are two different things.
+A
+string's length is the number of characters in the string.
+A string's index is the position of a character in the
+string.
+Indexing starts at zero.
+Counting starts at one.
+For example, the following code snippet returns the length of
 the string `John` and the index of the first character in the string `John`:
 
 ```javascript
@@ -605,8 +616,9 @@ The `charAt()` method is accessed by using the dot (`.`) notation as in `name.ch
 the character at index `0` in the string `John`, which is `J`.
 
 Note that the `length` property returns the number of characters in a string, and not only the numbers of letters. As we
-said earlier, characters are symbols including letters, punctuation, and various other written marks in a language.
-Therefore, the `length` will return the total number of characters in a string, including letters, punctuation,
+said earlier, characters are symbols including letters, punctuation, and various other written marks in a written
+language.
+Therefore, the `length` property will return the total number of characters in a string, including letters, punctuation,
 whitespaces, and so on. The `lenght` property does count an escape sequence (one or more special characters) as one
 character because it has a special meaning in JavaScript.
 
@@ -629,18 +641,20 @@ const emptyString = '';
 console.log(emptyString.length); // 0
 ```
 
-However, the empty string is not the same as a string that contains a space. A string that contains a space is not an
-empty string. It is a string that contains a space, which is a character.
+However, the empty string is not the same as a string that contains a whitespace.
+A string that contains a whitespace is not an
+empty string.
+It is a string that contains a whitespace, which is a character.
 
 ```javascript
 const space = ' ';
 console.log(space.length); // 1
 ```
 
-As seen in the code snippet above, the `space` variable stores a string that contains a space. So if you created a
+As seen in the code snippet above, the `space` variable stores a string that contains a whitespace. So if you created a
 string that stores a sentence that contains multiple whitespaces and other characters, the `length` property will return
 the
-total number of characters in the string, including these whitespaces and other characters.
+total number of characters in the string, including all whitespaces and other characters.
 
 ```javascript
 const sentence = 'The quick brown fox jumps over the lazy dog.';
@@ -676,26 +690,25 @@ the difference between indexing and counting. Now we are ready to learn about st
 
 Methods are functions that are attached to an object. They are used to perform an action on the object. While strings
 methods do not change the original string, however, they return a new string with the changes. Some methods take
-arguments and some do not. Arguments are values that are passed to a function. Arguments are used to customize the
+arguments, and some do not. Arguments are values that are passed to a function. Arguments are used to customize the
 behavior of a function.
 
-For example, the`toUpperCase()` method is used to convert a string to uppercase.The`toUpperCase()` method is attached to
-the`String` object. It is used to perform an action on the`String` object. The`toUpperCase()` method is called on a
-string and returns a new string with the uppercase letters. For example, the following code snippet calls
-the`toUpperCase()` method on the`String` object instance`name`:
+The key to using a method is to know the signature of the method.
+A method's signature consists of its name, the data type it returns, and the order of the arguments.
+To programmatically know how many arguments a method takes,
+you can use the `length` property of the `Function` object as in the following code snippet:
 
 ```javascript
-const name = 'john';
+const createUser = (name, email, password) => {
+    // create a user
+};
 
-console.log(name.charAt(0).toUpperCase() + name.slice(1)); // John
+console.log(createUser.length); // 3
 ```
 
-In the code snippet above, `charAt(0)` is used to get the first character of the string `name`. The `toUpperCase()`
-method is used to convert the first letter of `name` to uppercase. The `slice()` method is used to extract the rest of
-the string after the first letter. The `+` operator is used to concatenate the uppercase letter with the rest of the
-string. So, the output of `console.log(name.charAt(0).toUpperCase() + name.slice(1))` is `John`. Again, if you do not
-understand the code above, by the end of
-this article, you will learn how to use some of the most commonly used string methods.
+In the above code snippet, the `createUser()` function takes three arguments: `name`, `email`, and `password`.
+The `length` property of the `Function` object is used to get the number of parameters in the `createUser()` function.
+The `length` property returns `3` because the `createUser()` function takes three arguments.
 
 The `String` object has a number of methods that allow you to manipulate the string.
 There are two types of methods available on the `String` object: static methods and prototype methods.
@@ -725,10 +738,11 @@ const name = new String('John');
 name.fromCharCode(74, 111, 104, 110); // TypeError: name.fromCharCode is not a function
 ```
 
-The code above will throw an error because the `String.fromCharCode()` static method is not a prototype method.
+The code above will throw an error because the `String.fromCharCode()` method is not a prototype method.
 It is a static method.
 If the concept of static methods is new to you,
-the easier way to think about static methods is to think of them as functions that are attached to the `String` object.
+the easier way to think about string static methods is
+to think of them as functions that are attached to the `String` object directly.
 You may have seen this before when working with the `Math` or `Array` objects.
 For example, the following code uses static methods on the `Math` and `Array` objects:
 
@@ -936,15 +950,6 @@ console.log(result); // 24
 console.log(str.lastIndexOf("World", 24)); //
 ```
 
-### `length`
-
-The `length` property of a string returns the number of characters in the string.
-
-```javascript
-let str = "Hello World";
-console.log(str.length); // 11
-```
-
 ### `replace()`
 
 The `replace()` method replaces a specified value with another value in a string. It returns a new string where the
@@ -1090,12 +1095,34 @@ console.log(codePointStr); // ABC
 ### `toUpperCase()`
 
 The `toUpperCase()` method converts a string to uppercase letters.
+When the`toUpperCase()` method is called on a
+string, it returns a new string with the uppercase letters. For example, the following code snippet calls
+the`toUpperCase()` method on the`String` object instance`name`:
 
 ```javascript
-let str = "Hello World";
-let result = str.toUpperCase();
-console.log(result); // "HELLO WORLD"
+const name = 'john';
+
+console.log(name.toUpperCase()); // JOHN
 ```
+
+Sometimes you may need to convert the first letter of a string to uppercase.
+For example, you may need to convert the variable `name` to `John`.
+To do this, you can use the `charAt()` method to get the first character of the string `name`.
+Then you can use the `toUpperCase()` method to convert the first letter to uppercase.
+Finally, you can use the `slice()` method to extract the rest of the string after the first letter.
+
+Let's see this in action:
+
+```javascript
+const name = 'john';
+
+console.log(name.charAt(0).toUpperCase() + name.slice(1)); // John
+```
+
+In the code snippet above, `charAt(0)` is used to get the first character of the string `name`. The `toUpperCase()`
+method is used to convert the first letter of `name` to uppercase. The `slice()` method is used to extract the rest of
+the string after the first letter. The `+` operator is used to concatenate the uppercase letter with the rest of the
+string. So, the output of `console.log(name.charAt(0).toUpperCase() + name.slice(1))` is `John`.
 
 ### `toLowerCase()`
 
