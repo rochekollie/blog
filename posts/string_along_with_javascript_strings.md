@@ -268,8 +268,8 @@ In the above code snippet, the `name` variable is declared using the `let` keywo
 a variable that can be reassigned a new value. The `name` variable is assigned the value `John`. The `name` variable is
 then reassigned the value `Jane`. The output of `console.log(name)` is `Jane`. Looking at the code above, one might
 think that the `name` variable was changed from `John` to `Jane`. However, this is not the case. The `name` variable was
-not changed from `John` to `Jane`. The `name` variable was reassigned a new value. The `name` variable was reassigned
-the value `Jane`. This is because, as we said earlier, strings are immutable. They cannot be changed once they are
+not changed from `John` to `Jane`. The `name` variable was reassigned
+a new value, `Jane`. This is because, as we said earlier, strings are immutable. They cannot be changed once they are
 created.
 
 For example, the `toUpperCase()` method is used to convert a string to uppercase.
