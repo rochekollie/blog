@@ -898,44 +898,328 @@ systems.
 
 ### `concat()`
 
-## Useful String Methods
+The `concat()` method is used to join two or more strings. This method does not change the existing strings but returns
+a new string containing the text of the joined strings.
 
-- `concat()` - joins two or more strings.
-- `indexOf()` - returns the index of the first occurrence of a specified value in a string.
-- `lastIndexOf()` - returns the index of the last occurrence of a specified value in a string.
-- `length` - returns the length of a string.
-- `replace()` - replaces a specified value in a string with another value.
-- `search()` - searches a string for a specified value and returns the position of the match.
-- `slice()` - extracts a part of a string and returns the extracted part in a new string.
-- `split()` - splits a string into an array of substrings.
-- `substr()` - returns the characters in a string beginning at the specified location through the specified number of
-  characters.
-- `substring()` - returns the characters in a string between two specified indices.
-- `toLocaleLowerCase()` - converts a string to lowercase letters, according to the host's current locale.
-- `toLocaleUpperCase()` - converts a string to uppercase letters, according to the host's current locale.
-- `trim()` - removes whitespace from both ends of a string.
-- `valueOf()` - returns the primitive value of a `String` object.
-- `toString()` - returns a string representing the specified object.
-- `fromCharCode()` - converts Unicode values to characters.
-- `fromCodePoint()` - returns a string created by using the specified sequence of code points.
-- `toUpperCase()` - converts a string to uppercase letters.
-- `toLowerCase()` - converts a string to lowercase letters.
-- `includes()` - determines whether a string contains the characters of a specified string.
-- `endsWith()` - determines whether a string ends with the characters of a specified string.
-- `startsWith()` - determines whether a string begins with the characters of a specified string.
-- `repeat()` - returns a new string with a specified number of copies of an existing string.
-- `padEnd()` - pads the current string with a given string (repeated, if needed) so that the resulting string reaches
-  a given length.
-- `padStart()` - pads the current string with another string (multiple times, if needed) until the resulting string
-  reaches the given length.
-- `match()` - searches a string for a match against a regular expression, and returns the matches, as an Array object.
-- `matchAll()` - returns an iterator of all results matching a string against a regular expression, including
-  capturing groups.
-- `normalize()` - returns the Unicode Normalization Form of a given string.
-- `repeat()` - returns a new string with a specified number of copies of an existing string.
-- `replace()` - searches a string for a specified value, or a regular expression, and returns a new string where the
-  specified values are replaced.
-- `replaceAll()` - returns a new string with all matches of a pattern replaced by a replacement.
+```javascript
+let str1 = "Hello";
+let str2 = "World";
+let result = str1.concat(' ', str2);
+console.log(result); // "Hello World"
+```
+
+### `indexOf()`
+
+The `indexOf()` method returns the index of the first occurrence of a specified text in a string. If the specified text
+is not found, it returns `-1`.
+
+```javascript
+let str = "Hello World";
+let result = str.indexOf("World");
+console.log(result); // 6
+```
+
+### `lastIndexOf()`
+
+The `lastIndexOf()` method returns the index of the last occurrence of a specified text in a string. If the specified
+text is not found, it returns `-1`.
+
+```javascript
+let str = "Hello World, welcome to the World";
+let result = str.lastIndexOf("World");
+console.log(result); // 24
+```
+
+### `length`
+
+The `length` property of a string returns the number of characters in the string.
+
+```javascript
+let str = "Hello World";
+console.log(str.length); // 11
+```
+
+### `replace()`
+
+The `replace()` method replaces a specified value with another value in a string. It returns a new string where the
+specified values are replaced.
+
+```javascript
+let str = "Hello World";
+let result = str.replace("World", "Universe");
+console.log(result); // "Hello Universe"
+```
+
+### `search()`
+
+The `search()` method searches a string for a specified value and returns the index of the match. If no match is found,
+it returns `-1`.
+
+```javascript
+let str = "Hello World";
+let result = str.search("World");
+console.log(result); // 6
+```
+
+### `slice()`
+
+The `slice()` method extracts a part of a string and returns the extracted part in a new string. It takes two
+parameters: the start position, and the end position (end not included).
+
+```javascript
+let str = "Hello World";
+let result = str.slice(0, 5);
+console.log(result); // "Hello"
+```
+
+### `split()`
+
+The `split()` method is used to split a string into an array of substrings, and returns the new array.
+
+```javascript
+let str = "Hello World";
+let result = str.split(" ");
+console.log(result); // ["Hello", "World"]
+```
+
+### `substr()`
+
+The `substr()` method returns the characters in a string beginning at the specified location through the specified
+number of characters.
+
+```javascript
+let str = "Hello World";
+let result = str.substr(0, 5);
+console.log(result); // "Hello"
+```
+
+### `substring()`
+
+The `substring()` method returns the characters in a string between two specified indices.
+
+```javascript
+let str = "Hello World";
+let result = str.substring(0, 5);
+console.log(result); // "Hello"
+```
+
+### `toLocaleLowerCase()`
+
+The `toLocaleLowerCase()` method converts a string to lowercase letters, according to the host's current locale.
+
+```javascript
+let str = "Hello World";
+let result = str.toLocaleLowerCase();
+console.log(result); // "hello world"
+```
+
+### `toLocaleUpperCase()`
+
+The `toLocaleUpperCase()` method converts a string to uppercase letters, according to the host's current locale.
+
+```javascript
+let str = "Hello World";
+let result = str.toLocaleUpperCase();
+console.log(result); // "HELLO WORLD"
+```
+
+### `trim()`
+
+The `trim()` method removes whitespace from both ends of a string.
+
+```javascript
+let str = "   Hello World   ";
+let result = str.trim();
+console.log(result); // "Hello World"
+```
+
+### `valueOf()`
+
+The `valueOf()` method returns the primitive value of a `String` object.
+
+```javascript
+let str = new String("Hello World");
+let result = str.valueOf();
+console.log(result); // "Hello World"
+```
+
+### `toString()`
+
+The `toString()` method returns a string representing the specified object.
+
+```javascript
+let str = new String("Hello World");
+let result = str.toString();
+console.log(result); // "Hello World"
+```
+
+### `fromCharCode()`
+
+The `fromCharCode()` method converts Unicode values to characters.
+
+```javascript
+let result = String.fromCharCode(72, 101, 108, 108, 111);
+console.log(result); // "Hello"
+```
+
+### `fromCodePoint()`
+
+The `fromCodePoint()` method returns a string created by using the specified sequence of code points.
+
+```javascript
+let result = String.fromCodePoint(72, 101, 108, 108, 111);
+console.log(result); // "Hello"
+```
+
+### `toUpperCase()`
+
+The `toUpperCase()` method converts a string to uppercase letters.
+
+```javascript
+let str = "Hello World";
+let result = str.toUpperCase();
+console.log(result); // "HELLO WORLD"
+```
+
+### `toLowerCase()`
+
+The `toLowerCase()` method converts a string to lowercase letters.
+
+```javascript
+let str = "Hello World";
+let result = str.toLowerCase();
+console.log(result); // "hello world"
+```
+
+### `includes()`
+
+The `includes()` method determines whether a string contains the characters of a specified string.
+
+```javascript
+let str = "Hello World";
+let result = str.includes("World");
+console.log(result); // true
+```
+
+### `endsWith()`
+
+The `endsWith()` method determines whether a string ends with the characters of a specified string.
+
+```javascript
+let str = "Hello World";
+let result = str.endsWith("World");
+console.log(result); // true
+```
+
+### `startsWith()`
+
+The `startsWith()` method determines whether a string begins with the characters of a specified string.
+
+```javascript
+let str = "Hello World";
+let result = str.startsWith("Hello");
+console.log(result); // true
+```
+
+### `repeat()`
+
+The `repeat()` method returns a new string with a specified number of copies of an existing string.
+
+```javascript
+let str = "Hello";
+let result = str.repeat(3);
+console.log(result); // "HelloHelloHello"
+```
+
+### `padEnd()`
+
+The `padEnd()` method pads the current string with a given string (repeated, if needed) so that the resulting string
+reaches a given length.
+
+```javascript
+let str = "Hello";
+let result = str.padEnd(10, " World");
+console.log(result); // "Hello World"
+```
+
+### `padStart()`
+
+The `padStart()` method pads the current string with another string (multiple times, if needed) until the resulting
+string reaches the given length.
+
+```javascript
+let str = "World";
+let result = str.padStart(10, "Hello ");
+console.log(result); // "Hello World"
+```
+
+### `match()`
+
+The `match()` method searches a string for a match against a regular expression, and returns the matches, as an Array
+object.
+
+```javascript
+let str = "Hello World";
+let result = str.match(/World/);
+console.log(result); // ["World", index: 6, input: "Hello World", groups: undefined]
+```
+
+### `matchAll()`
+
+The `matchAll()` method returns an iterator of all results matching a string against a regular expression, including
+capturing groups.
+
+```javascript
+let str = "Hello World, welcome to the World";
+let result = [...str.matchAll(/World/g)];
+console.log(result); // [["World", index: 6, input: "Hello World, welcome to the World", groups: undefined], ["World", index: 24, input: "Hello World, welcome to the World", groups: undefined]]
+```
+
+### `normalize()`
+
+The `normalize()` method returns the Unicode Normalization Form of a given string.
+
+```javascript
+let str = "The \u212B symbol invented by A. J. \u00C5ngstr\u00F6m (1814, L\u00F6gd\u00F6, \u2013 1874) denotes the length 10\u207B\u00B9\u2070 m.";
+let result = str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+console.log(result); // "The A symbol invented by A. J. Angstrom (1814, Logdo, – 1874) denotes the length 10-10 m."
+```
+
+### `repeat()`
+
+The `repeat()` method returns a new string with a specified number of copies of an existing string.
+
+```javascript
+let str = "Hello";
+let result = str.repeat(3);
+console.log(result); // "HelloHelloHello"
+```
+
+### `replace()`
+
+The `replace()` method searches a string for a specified value, or a regular expression, and returns a new string where
+the specified values are replaced.
+
+```javascript
+let str = "Hello World";
+let result = str.replace("World", "Universe");
+console.log(result); // "Hello Universe"
+```
+
+### `replaceAll()`
+
+The `replaceAll()` method returns a new string with all matches of a pattern replaced by a replacement.
+
+```javascript
+let str = "Hello World, welcome to the World";
+let result = str.replaceAll("World", "Universe");
+console.log(result); // "Hello Universe, welcome to the Universe"
+```
+
+JavaScript provides a rich set of string manipulation methods that empower developers to work with text efficiently. In
+this section, we delved into various string methods, exploring their functionalities with practical code examples
+These are just a few of the many string methods available in JavaScript. They are all beneficial for manipulating and
+handling strings in different ways.
 
 ## Summary
 
@@ -961,4 +1245,5 @@ In summary, this article is a comprehensive guide to understanding and working w
 everything from creation, manipulation, properties, and methods.
 
 I hope this comprehensive guide was helpful in enhancing your understanding of working with strings in the JavaScript
-language. If you have any questions or feedback, please feel free to reach out to me on [Twitter](https://twitter.com/rochekollie).
+language. If you have any questions or feedback, please feel free to reach out to me
+on [Twitter](https://twitter.com/rochekollie).
