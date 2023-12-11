@@ -567,8 +567,9 @@ The `String` data type has a special property called `length` that returns the l
 string is the number of characters in the string. A property is the value of an object. A property has a name and a
 value. You may think of it as a variable attached to an object. It can be a primitive value, like a number or string, or
 it can be a function, known as a method which we will cover next. A property is accessed by using the dot (`.`)
-notation. The dot notation is used to access the properties and methods of an object. You have seen this throughout this
-article when we used the `console.log()` method to log a value to the console.
+notation. The dot notation is known as property accessor. It is used to provide access to the properties and methods of
+an object. You have seen this throughout this article when we used the `console.log()` method to log a value to the
+console.
 
 ```javascript
 console.log('Hello world.'); // Hello world.
@@ -634,13 +635,34 @@ console.log(space.length); // 1
 ```
 
 As seen in the code snippet above, the `space` variable stores a string that contains a space. So if you created a
-string that stores a sentence that contains multiple whitespaces and other characters, the `length` property will return the
+string that stores a sentence that contains multiple whitespaces and other characters, the `length` property will return
+the
 total number of characters in the string, including these whitespaces and other characters.
 
 ```javascript
 const sentence = 'The quick brown fox jumps over the lazy dog.';
 
 console.log(sentence.length); // 44
+```
+
+Please note that there is also a property of the `Function` object called `length`. The `length` property of
+the `Function` object is a static property that returns the number of parameters in a function. The `length` property of
+the `String` object is a prototype method that returns the number of characters in a string. We will cover static and
+prototype methods in the next section. For now, know that the `length` property of the `String` object is not the
+same as the `length` property of the `Function` object. The `length` property of the `String` object returns the number
+of
+characters in a string. The `length` property of the `Function` object returns the number of parameters in a function.
+
+```javascript
+const name = 'John';
+
+console.log(name.length); // 4
+
+const sayHello = (name) => {
+    console.log(`Hello, ${name}!`);
+};
+
+console.log(sayHello.length); // 1
 ```
 
 The `length` property is the only property of the String data type. It is a commonly used property of the `String`
@@ -770,32 +792,114 @@ You can find a complete list of methods on
 the [MDN web docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String#constructor).
 With no further ado, let's get stringing with our first string method.
 
-### `at(index)`
+### `at()`
 
-The `at(index)` method returns the character at the specified index in a string. Indexing starts at zero. For example,
-the following code snippet returns the character at index 0 in the string `John`:
+The `at()` method returns the method returns the character at the specified index in a string. The `at()` takes a single
+argument, which is the index of the character to return. The argument must be an integer value
+between `0` and `String.length - 1` or between `-1` and `-String.length`. If the argument is not an integer value
+between `0` and `String.length - 1`, or between `-1` and `-String.length`, the `at()` method returns `undefined`.
+
+Let's learn how to use the `at()` method with some examples:
 
 ```javascript
 const name = 'John';
+
 console.log(name.at(0)); // J
+
+console.log(name.at(1)); // o
+
+console.log(name.at(-1)); // n
+
+console.log(name.at(3)); // n
+
+console.log(name.at(4)); // undefined
+
+console.log(name.at(-2)); // h
+
+console.log(name.at(-4)); // J
+
+console.log(name.at(-5)); // undefined
 ```
+
+In the above code snippet, we see that the `at()` argument of the `at()` method can be a positive or negative integers.
+If the argument is a positive integer, the `at()` method returns the character at the specified index in the string. If
+the argument is a negative integer, the `at()` method returns the character at the specified index in the string,
+starting from the end of the string. If the argument is not an integer value between `0` and `String.length - 1`, or
+between `-1` and `-String.length`, the `at()` method returns `undefined`.
 
 ### `charAt()`
 
-The `charAt()` method returns the character at the specified index in a string. Indexing starts at zero. For example,
-the following code snippet returns the character at index 0 in the string `John`:
+The `charAt()` method returns the character at the specified index in a string. The `charAt()` takes a single argument,
+which is the index of the character to return. The argument must be an integer value between `0`
+and `String.length - 1`. If the argument is not an integer value between `0` and `String.length - 1`, the `charAt()`
+method returns an empty string.
+
+Let's explore the `charAt()` method with some examples:
 
 ```javascript
 const name = 'John';
+
 console.log(name.charAt(0)); // J
+
+console.log(name.charAt(1)); // o
+
+console.log(name.charAt(3)); // n
+
+console.log(name.charAt(4)); // empty string
+
+console.log(name.charAt(-1)); // empty string
 ```
+
+In the above code snippet, we see that the `charAt()` argument of the `charAt()` method must be a positive integer. If
+the argument is a positive integer, the `charAt()` method returns the character at the specified index in the string. If
+the argument is not an integer value between `0` and `String.length - 1`, that is, if the specified index is out of the
+range, the `charAt()` method returns an empty string.
+
+The differences between the `charAt()` and `at()` methods is that the `charAt()` takes only positive integers and
+returns an empty string if the
+index is out of range, whereas the `at()` method takes both positive and negative integers and returns `undefined` if
+the index is out of range.
 
 ### `charCodeAt()`
 
+The `charCodeAt()` method returns the Unicode value of the character at the specified index in a string.
+The `charCodeAt()` takes a single argument, which is the index of the character to return. The argument must be an
+integer value between `0` and `String.length - 1`. If the argument is not an integer value between `0`
+and `String.length - 1`, the `charCodeAt()` method returns `NaN`.
+
+Time to examine the `charCodeAt()` method with some examples:
+
+```javascript
+const name = 'John';
+
+console.log(name.charCodeAt(0)); // 74
+
+console.log(name.charCodeAt(1)); // 111
+
+console.log(name.charCodeAt(3)); // 110
+
+console.log(name.charCodeAt(4)); // NaN
+
+console.log(name.charCodeAt(-1)); // NaN
+
+console.log(name.charCodeAt()); // The argument is undefined that is converted to charCodeAt(0) => 74
+```
+
+In the above code snippet, we see that the `charCodeAt()` argument of the `charCodeAt()` method must be a positive
+integer. If the argument is a positive integer, the `charCodeAt()` method returns the Unicode value of the character at
+the specified index in the string. If the argument is not an integer value between `0` and `String.length - 1`, that is,
+if the specified index is out of the range, the `charCodeAt()` method returns `NaN`. Also, if the argument is not passed
+to the `charCodeAt()` method, the argument is undefined that is converted to `charCodeAt(0)`. So, the `charCodeAt()` is
+the same result as `charCodeAt(0)`.
+
+The `charCodeAt()` method is can be useful when working with Unicode characters. Unicode is a computing industry
+standard for the consistent encoding, representation, and handling of text expressed in most of the world's writing
+systems.
+
+### `concat()`
+
 ## Useful String Methods
 
-- `charAt()` - returns the character at the specified index.
-- `charCodeAt()` - returns the Unicode of the character at the specified index.
 - `concat()` - joins two or more strings.
 - `indexOf()` - returns the index of the first occurrence of a specified value in a string.
 - `lastIndexOf()` - returns the index of the last occurrence of a specified value in a string.
@@ -832,3 +936,29 @@ console.log(name.charAt(0)); // J
 - `replace()` - searches a string for a specified value, or a regular expression, and returns a new string where the
   specified values are replaced.
 - `replaceAll()` - returns a new string with all matches of a pattern replaced by a replacement.
+
+## Summary
+
+This article provides a comprehensive guide to working with strings in JavaScript. It begins by explaining what a string
+is, which is a sequence of characters used to represent text in programming. It then delves into the two types of
+strings in JavaScript: string primitives and string objects. String primitives are not objects and have no methods,
+while string objects are wrappers around the string primitive data type.
+
+The article then explains how to create strings using string literals or the `String` constructor, and the difference
+between using these two methods. It also covers the concept of string immutability, which means that once a string is
+created, its value cannot be changed.
+
+The article also discusses string iterability, which means that you can access each character in a string individually
+using loops. It then explains how to create strings, including using single quotes, double quotes, backticks, and escape
+sequences.
+
+The article also covers the `length` property of strings, which returns the number of characters in a string. It then
+provides a detailed explanation of various string methods,
+including `charAt()`, `charCodeAt()`, `concat()`, `indexOf()`, `lastIndexOf()`, `replace()`, `search()`, `slice()`, `split()`, `substr()`, `substring()`, `toLocaleLowerCase()`, `toLocaleUpperCase()`, `trim()`, `valueOf()`, `toString()`, `fromCharCode()`, `fromCodePoint()`, `toUpperCase()`, `toLowerCase()`, `includes()`, `endsWith()`, `startsWith()`, `repeat()`, `padEnd()`, `padStart()`, `match()`, `matchAll()`, `normalize()`, `repeat()`, `replace()`,
+and `replaceAll()`.
+
+In summary, this article is a comprehensive guide to understanding and working with strings in JavaScript, covering
+everything from creation, manipulation, properties, and methods.
+
+I hope this comprehensive guide was helpful in enhancing your understanding of working with strings in the JavaScript
+language. If you have any questions or feedback, please feel free to reach out to me on [Twitter](https://twitter.com/rochekollie).
