@@ -241,7 +241,7 @@ value of the `name` variable from `John` to `Jane`:
 
 ```javascript
 let name = new String('John');
-name = 'Jane'; // name is now changed to a string primitive
+name = 'Jane'; // name is now changed from John to Jane
 
 console.log(name); // Jane
 ```
