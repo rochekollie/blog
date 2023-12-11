@@ -319,8 +319,7 @@ n
 ```
 
 String iterability is a property of strings in JavaScript that was introduced in ES6. In the previous code snippet, we
-used the `for...of` loop to iterate over the characters in the string primitive `name`. The `for...of` loop is used to
-iterate over the characters in the string primitive `name`. Now, with this added knowledge, let's learn about creating
+used the `for...of` loop to iterate over the characters in the string primitive `name`. Now, with this added knowledge, let's learn about creating
 strings.
 
 ## Creating Strings
