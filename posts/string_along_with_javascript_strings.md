@@ -212,7 +212,7 @@ So, the output of `sentence` is `Hello, world, my name is John.`.
 If you do not understand the above code snippet, don't worry.
 String along,
 as we work with string methods in the upcoming sections.
-Before we do, let's take cover two key concepts about strings: immutability and iterability.
+Before we do, let's cover two key concepts about strings: immutability and iterability.
 Let's start with immutability.
 
 ## String Immutability
