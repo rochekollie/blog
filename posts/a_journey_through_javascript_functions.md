@@ -724,8 +724,8 @@ Promises provide a more structured way to handle asynchronous operations and avo
 Async/await syntax further simplifies working with Promises,
 making asynchronous code appear more synchronous and easier to read.
 
-Despite these advancements, understanding callbacks remains crucial for anyone working with JavaScript, as they are a foundational concept in the language and continue to be part of many libraries and frameworks.
-
+Despite these advancements, understanding callbacks remains crucial for anyone working with JavaScript, as they are a
+foundational concept in the language and continue to be part of many libraries and frameworks.
 
 ## Immediately-Invoked Function Expressions (IIFE)
 
@@ -782,19 +782,24 @@ but it still remains a valuable tool in certain situations.
 
 ## Summary
 
-In this article, we explored various aspects of JavaScript functions,
-covering function declarations, syntax, return values, default parameters,
-function signatures, anonymous functions, function expressions, and arrow functions.
-We emphasized the modular and reusable nature of functions,
-highlighting their role in implementing the "Don't Repeat Yourself" (DRY) coding principle.
-The article delved into the significance of function signatures for code clarity and organization,
-as well as the use of default parameters to handle missing or undefined values effectively.
-Additionally, we discussed anonymous functions and function expressions,
-showcasing their utility in scenarios where short-lived or on-the-fly functions are required.
-Finally, we introduced arrow functions,
-noting their concise syntax and specific behaviors,
-such as the absence of their own `this` binding and the lack of an `arguments` object.
-Understanding these concepts contributes to writing clean, readable, and efficient JavaScript code.
+The article provides a thorough exploration of JavaScript functions,
+emphasizing their crucial role in modern web development by promoting modular and efficient coding practices.
+It covers fundamental aspects like syntax, first-class functions, and creation methods,
+advocating for code organization and readability.
+The importance of understanding functions for building dynamic web applications is highlighted,
+along with principles such as DRY and concepts like anonymous functions,
+callback functions, and Immediately-Invoked Function Expressions
+(IIFE).
+The article recognizes the continued relevance of foundational concepts, even in the context of advancements like ES6.
+Overall, it serves as a comprehensive guide,
+empowering developers
+to enhance their understanding of JavaScript functions for effective use in building interactive web applications.
+
+I hope you found this article useful in understanding JavaScript functions on your journey to writing clean,
+readable, and efficient JavaScript code.
+If you have any questions or feedback,
+please feel free to reach out to me on Twitter at [@rochekollie](https://twitter.com/rochekollie).
+I'd love to hear from you!
 
 
 
